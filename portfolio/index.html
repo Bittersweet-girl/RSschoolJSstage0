@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="icon" href="assets/logo.ico">
+    <link href="./styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <title>Portfolio</title>
 </head>
 <body>
     <header class="header">
         <div class="wrapper">
-            <div>
-                <a href="#"></a>
+            <div class="header-content">
+                <div class="logo">
+                    <a href="#" class="logo__link"></a>
+                </div>
+                <nav class="header__nav">
+                    <ul class="nav">
+                        <li class="nav__item"><a href="#" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Portfolio</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Video</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Price</a></li>
+                        <li class="nav__item"><a href="#" class="nav__link">Contacts</a></li>
+                    </ul>
+                </nav>
+                <div class="lang-switch">
+                    <a href="#">eng</a><span>/</span><a href="#">ru</a>
+                </div>
             </div>
-            <nav class="header__navigation">
-                <ul class="navigation">
-                    <li><a href="#">Skills</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Video</a></li>
-                    <li><a href="#">Price</a></li>
-                    <li><a href="#">Contacts</a></li>
-                </ul>
-            </nav>
-            <div>
-                <a href="#">eng</a><span>/</span><a href="#">ru</a>
-            </div>
+            
         </div>
     </header>
-    <main>
+    <main class="main">
+        <!--Hero-->
         <section class="hero">
             <div class="wrapper">
                 <h1>Alexa Rise</h1>
@@ -36,9 +45,13 @@
                 </div>
             </div>
         </section>
+
+        <!--Skills-->
         <section class="skills">
             <div class="wrapper">
-                <h2 class="section-title">Skills</h2>
+                <div class="section-title">
+                    <h2 class="section-title">Skills</h2>
+                </div>
                 <div class="layout-4-column">
                     <div class="photo">
                         <div class="photo__icon">
@@ -71,9 +84,13 @@
                 </div>
             </div>
         </section>
+
+        <!--Portfolio-->
         <section class="portfolio">
             <div class="wrapper">
-                <h2>Portfolio</h2>
+                <div class="section-title">
+                    <h2>Portfolio</h2>
+                </div>
                 <div class="portfolio-buttons">
                     <button class="button button__blank">Hire me</button>
                     <button class="button button__blank">Hire me</button>
@@ -85,17 +102,24 @@
                 </div>
             </div>
         </section>
+        <!--Video-->
         <section class="video">
             <div class="wrapper">
-                <h2>Video</h2>
+                <div class="section-title">
+                    <h2>Video</h2>
+                </div>
                 <div class="video-player">
                     <button class="video-button"></button>
                 </div>
             </div>
         </section>
+
+        <!--Price-->
         <section class="price">
             <div class="wrapper">
-                <h2>Price</h2>
+                <div class="section-title">
+                    <h2>Price</h2>
+                </div>
                 <div class="layout-3-colunm">
                     <div class="price-item">
                         <h3>Standard</h3>
@@ -111,24 +135,40 @@
                 </div>
             </div>
         </section>
+
+        <!--Contacts-->
         <section class="contacts">
             <div class="wrapper">
-                <div class="contacts-contetnt">
-                    <h2>Contact me</h2>
+                <div class="contacts-content">
+                    <div class="section-title">
+                        <h2>Contact me</h2>
+                    </div>
                     <form action method="post">
                         <input type="email" name="name" placeholder="email">
                         <input type="text" name="name" placeholder="phone">
                         <textarea name="mrssage" cols="30" rows="10"></textarea>
                         <div class="contact__button">
-                            <button class="button button__colored">Send message</button>
+                            <button class="button button__colored" type="submit">Send message</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <div class="wrapper"></div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="wrapper">
+            <span>2022</span>
+            <a href="#">github</a>
+            <a href="#">Rolling Scopes School</a>
+            <div class="footer-liks">
+                <span class="instagram"></span>
+                <span class="facebook"></span>
+                <span class="twitter"></span>
+                <span class="pinterest"></span>
+            </div>
+        </div>
     </footer>
 </body>
 </html>

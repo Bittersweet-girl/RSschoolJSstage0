@@ -1,0 +1,105 @@
+:root {
+  --color-gold: #bdae82;
+  --color-black: #000;
+  --color-white: #fff;
+  --font1: 60px;
+  --font2: 40px;
+}
+* {
+    box-sizing: border-box;
+  }
+html {
+  scroll-behavior: smooth; 
+}
+body{
+    font-family: 'Inter', sans-serif;
+    font-family: 'Merriweather', serif;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+}
+.wrapper{
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+.header{
+  background: url('./assets/img/bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center 0;
+  height: 90px;
+}
+.header-content{
+    display: flex;
+    justify-content: space-between;
+    height: 90px;
+}
+.logo{
+    background: url('./assets/svg/logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;  
+  background-position: center 0;
+  height: 50px;
+  width: 50px;
+  margin: 20px;
+  transition: 0.3s;
+}
+
+.logo:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
+.header__nav{
+    margin-top: 20px;
+    margin-left: auto;
+}
+.nav{
+    display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+.nav__link{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--color-white);
+    padding: 0px 15px;
+    text-decoration: none;
+}
+.nav__link:hover{
+    color: var(--color-gold);
+}
+.lang-switch{
+    margin-top: 20px;
+    margin-right: 10px;
+}   
+.lang-switch a{
+        font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 0px 10px;
+}
+.lang-switch a:hover{
+    color: var(--color-gold);
+}
+.main{
+    margin: 0;
+}
+.hero{
+  background-image: url('./assets/img/bg.jpg');
+  background-position: center -90px;
+  background-repeat: no-repeat;
+  height: 910px;
+}
