@@ -12,8 +12,8 @@ html {
   scroll-behavior: smooth; 
 }
 body{
-    font-family: 'Inter', sans-serif;
     font-family: 'Merriweather', serif;
+    font-family: 'Inter', sans-serif;
     background-color: var(--color-black);
     color: var(--color-white);
     display: flex;
@@ -21,6 +21,35 @@ body{
     justify-content: space-between;
     margin: 0;
     padding: 0;
+}
+.button{
+    width: 220px;
+    height: 55px;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 0;
+    color: var(--color-black);
+}
+.button__colored{
+    background-color: var(--color-gold);
+}
+.button__colored:hover{
+    color: var(--color-white);
+}
+.button__blank{
+    background-color: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+}
+.button__blank:hover{
+    color: var(--color-white);
+}
+a {
+    text-decoration: none;
+    color: var(--color-white);
+}
+a:hover{
+    color: var(--color-gold);
 }
 .wrapper{
     width: 1440px;
@@ -65,7 +94,7 @@ body{
   margin: 0;
 }
 .nav__link{
-    font-family: Inter;
+    
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
@@ -82,24 +111,44 @@ body{
     margin-right: 10px;
 }   
 .lang-switch a{
-        font-family: Inter;
+    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 50px;
-    color: var(--color-white);
-    text-decoration: none;
     padding: 0px 10px;
 }
-.lang-switch a:hover{
-    color: var(--color-gold);
-}
+
 .main{
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .hero{
   background-image: url('./assets/img/bg.jpg');
   background-position: center -90px;
   background-repeat: no-repeat;
   height: 910px;
+}
+.hero-content{
+    display: block;
+    width: 470px;
+    margin-top: 160px;
+    margin-left: 80px;
+}
+.hero h1{
+    font-family: Merriweather;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 120px;
+    margin: 0;
+}
+.hero p{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 40px;
 }
