@@ -35,7 +35,7 @@ body{
     border-radius: 0;
     color: var(--color-black);
     border: 1px solid var(--color-gold);
-    transition: 0.3s;
+    transition: 0.5s;
 }
 .button__colored{
     background-color: var(--color-gold);
@@ -57,7 +57,7 @@ body{
   background-position: center 0;
   height: 130px;
   width: 130px;
-  transition: 0.3s;
+  transition: 0.5s;
   border: 0;
   cursor: pointer;
 }
@@ -72,7 +72,7 @@ a {
     font-weight: normal;
     font-size: 20px;
     line-height: 50px;
-    transition: 0.3s;
+    transition: 0.5s;
 
 }
 a:hover{
@@ -156,7 +156,6 @@ h4{
 }
 .logo{
   margin: 20px;
-  transition: 0.3s;
 }
 .logo
 .logo_pic{
@@ -167,6 +166,7 @@ h4{
     background-position: center 0;
     height: 50px;
     width: 50px;
+    transition: 0.5s;
 }
 .logo_pic:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
@@ -222,6 +222,9 @@ h4{
     font-size: 20px;
     line-height: 40px;
 }
+.hero-button{
+    margin-top: 20px;
+}
 .skills{
     margin-top: 65px;
 }
@@ -229,13 +232,21 @@ h4{
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  margin: 30px 20px 0 20px;
+  padding: 30px 35px 0 35px;
 }
 .skills-items > * {
   flex-basis: 21%;
 }
-.skill-item p {
+.skills-item {
   text-align: center;
+}
+.skills-item p{
+    font-size: 18px;
+    line-height: 36px;
+    margin: 0;
+}
+.skills-item_title{
+    margin-top: 50px;
 }
 .icon-pic{
     display: inline-flex;
@@ -274,7 +285,7 @@ h4{
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin-top: 60px;
+    margin-top: 30px;
 }
 .portfolio-photoes{
     display: flex;
@@ -282,32 +293,36 @@ h4{
     gap: 25px;
     flex-wrap: wrap;
     margin-top: 60px;
+    padding: 0px 20px;
 }
 .video{
-    margin-top: 50px;
+    margin-top: 65px;
 }
 .video-player{
     position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 .video-button_position{
     position: absolute;
     top: 288px;
-    left: 636px;
+    left: 656px;
 }
 .price{
-    margin-top: 50px;
+    margin-top: 65px;
 }
 .price-items{
     display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-top: 30px;
+  padding: 0px 20px;
 }
 .price-item{
     border: 1px solid var(--color-gold);
-    padding: 43px 115px;
+    padding: 15px 115px 45px 115px;
 }
 .price-item span{
     display: block;
@@ -323,12 +338,13 @@ h4{
     line-height: 48px;
     text-align: center;
     color: var(--color-gold);
+    margin: 0;
 }
 .price-button{
-    margin-top: 40px;
+    margin-top: 50px;
 }
 .contacts{
-    margin-top: 60px;
+    margin-top: 100px;
     background: url('./assets/img/contacts-bg.jpg');
     background-size: auto 700px;
     background-position: center center;
@@ -338,6 +354,7 @@ h4{
 }
 .contacts-content{
     width: 450px;
+    margin-top: 60px;
     margin-left: 970px;
 }
 .contacts-content>h2{
@@ -370,7 +387,7 @@ h4{
 .footer-content{
     display: flex;
     justify-content: space-between;
-    padding: 50px 20px;
+    padding: 50px 10px;
 }
 .footer-link_instagram{
     display: inline-block;
@@ -428,6 +445,6 @@ h4{
     margin: 0;
 }
 .footer__link{
-    padding: 0px 15px;
+    padding: 0px 10px;
     text-decoration: none;
 }
