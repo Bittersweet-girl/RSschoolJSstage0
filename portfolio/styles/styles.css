@@ -122,6 +122,7 @@ h4{
         }
         h2{
         font-size: 32px;
+        margin: 0;
         }
     } 
 .section-title{
@@ -237,18 +238,19 @@ h4{
 
 @media (max-width: 768px) {
     .hero{
-        height: 590px;
-        background-position: -5px -30px;
+        height: 500px;
+        background-position: -5px -120px;
         background-size: auto 620px;
     }
     .hero-content{
         padding-left: 60px;
+        padding-top: 80px;
     }
     .hero p{
     line-height: 24px;
     }
     .hero-button{
-        padding-top: 60px;
+        padding-top: 40px;
     }
 }
             /*Skills*/
@@ -306,14 +308,20 @@ h4{
   height: 50px; 
 }
 @media (max-width: 768px) {
+    .skills{
+    padding-top: 80px;
+}
     .skills-items > * {
-        flex-basis: 40%;
+        flex-basis: 45%;
 }
     .skills-item{
-        margin: 20px;
+        margin: 15px 15px 55px;
     }
     .skills-item p{
         line-height: 22px;
+}
+.skills-item_title{
+    margin-top: 25px;
 }
 }
         /*Portfolio*/
