@@ -55,7 +55,7 @@ body{
     color: var(--color-white);
 }
 .video-button{
-    background: url('./assets/svg/play.svg');
+    background: url('.././assets/svg/play.svg');
   background-size: contain;
   background-repeat: no-repeat;  
   background-position: center 0;
@@ -154,7 +154,7 @@ h4{
 }
 
 .header{
-  background: url('./assets/img/bg.jpg');
+  background: url('.././assets/img/bg.jpg');
   background-repeat: no-repeat;
   background-position: center 0;
   height: 90px;
@@ -170,7 +170,7 @@ h4{
 .logo
 .logo_pic{
     display: inline-block;
-    background: url('./assets/svg/logo.svg');
+    background: url('.././assets/svg/logo.svg');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center 0;
@@ -217,7 +217,7 @@ h4{
 }
         /*Hero*/
 .hero{
-  background-image: url('./assets/img/bg.jpg');
+  background-image: url('.././assets/img/bg.jpg');
   background-position: center -90px;
   background-repeat: no-repeat;
   height: 820px;
@@ -282,25 +282,25 @@ h4{
     margin: 0 auto;
 }
 .icon-pic_photo {
-  background-image: url('./assets/svg/camera.svg');
+  background-image: url('.././assets/svg/camera.svg');
   background-size: 62px 50px;
   width: 62px;
   height: 50px; 
 }
 .icon-pic_video{
-  background-image: url('./assets/svg/video.svg');
+  background-image: url('.././assets/svg/video.svg');
   background-size: 62px 50px;
   width: 62px;
   height: 50px; 
 }
 .icon-pic_image{
-  background-image: url('./assets/svg/image.svg');
+  background-image: url('.././assets/svg/image.svg');
   background-size: 62px 50px;
   width: 62px;
   height: 50px; 
 }
 .icon-pic_audio{
-  background-image: url('./assets/svg/mic.svg');
+  background-image: url('.././assets/svg/mic.svg');
   background-size: 62px 50px;
   width: 62px;
   height: 50px; 
@@ -384,7 +384,7 @@ h4{
 }
 .contacts{
     margin-top: 100px;
-    background: url('./assets/img/contacts-bg.jpg');
+    background: url('.././assets/img/contacts-bg.jpg');
     background-size: auto 700px;
     background-position: center center;
     background-repeat: no-repeat;
@@ -439,7 +439,7 @@ h4{
 }
 .footer-link_instagram{
     display: inline-block;
-    background: url('./assets/svg/inst.svg');
+    background: url('.././assets/svg/inst.svg');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center 0;
@@ -451,7 +451,7 @@ h4{
 }
 .footer-link_facebook{
     display: inline-block;
-    background: url('./assets/svg/fb.svg');
+    background: url('.././assets/svg/fb.svg');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center 0;
@@ -463,7 +463,7 @@ h4{
 }
 .footer-link_twitter{
     display: inline-block;
-    background: url('./assets/svg/tw.svg');
+    background: url('.././assets/svg/tw.svg');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center 0;
@@ -475,7 +475,7 @@ h4{
 }
 .footer-link_pinterest{
     display: inline-block;
-    background: url('./assets/svg/pinterest.svg');
+    background: url('.././assets/svg/pinterest.svg');
     background-size: contain;
     background-repeat: no-repeat;  
     background-position: center 0;
