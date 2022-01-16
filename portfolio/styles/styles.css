@@ -116,11 +116,11 @@ h4{
     color: var(--color-white);
 }
 @media (max-width: 768px) {
-        h1{
+    h1{
         font-size: 32px;
         line-height: 64px;
         }
-        h2{
+    h2{
         font-size: 32px;
         margin: 0;
         }
@@ -247,7 +247,7 @@ h4{
         padding-top: 80px;
     }
     .hero p{
-    line-height: 24px;
+        line-height: 24px;
     }
     .hero-button{
         padding-top: 40px;
@@ -309,24 +309,24 @@ h4{
 }
 @media (max-width: 768px) {
     .skills{
-    padding-top: 80px;
-}
+        padding-top: 80px;
+    }
     .skills-items > * {
         flex-basis: 45%;
-}
+    }
     .skills-item{
         margin: 15px 15px 55px;
     }
     .skills-item p{
         line-height: 22px;
-}
-.skills-item_title{
-    margin-top: 25px;
-}
+    }
+    .skills-item_title{
+        margin-top: 25px;
+    }
 }
         /*Portfolio*/
 .portfolio{
-    margin-top: 60px;
+    padding-top: 60px;
 }
 .portfolio-buttons{
     display: flex;
@@ -342,6 +342,23 @@ h4{
     margin-top: 60px;
     padding: 0px 20px;
 }
+@media (max-width: 768px) {
+    .portfolio{
+        padding-top: 100px;
+    }
+    .portfolio-buttons{
+        flex-wrap: wrap;
+        margin-top: 50px;
+        padding: 0 110px;
+    }
+    .portfolio-buttons > *{
+        flex-basis: 40%;
+    }
+    .portfolio-photoes{
+        justify-content: center;
+    }
+}
+        /*Video*/
 .video{
     margin-top: 65px;
 }
