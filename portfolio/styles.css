@@ -82,6 +82,7 @@ a:hover{
     color: var(--color-gold);
 }
     /*Titles*/
+   
 h1{
     font-family: Merriweather;
     font-weight: bold;
@@ -89,12 +90,7 @@ h1{
     line-height: 120px;
     margin: 0; 
 }
-@media (max-width: 768px) {
-        h1{
-        font-size: 32px;
-        line-height: 64px;
-        }
-    }
+
 h2{
     font-family: Merriweather;
     font-weight: bold;
@@ -119,6 +115,15 @@ h4{
     text-align: center;
     color: var(--color-white);
 }
+@media (max-width: 768px) {
+        h1{
+        font-size: 32px;
+        line-height: 64px;
+        }
+        h2{
+        font-size: 32px;
+        }
+    } 
 .section-title{
     width: 50%;
     overflow-x: hidden;
@@ -230,9 +235,6 @@ h4{
     line-height: 40px;
 }
 
-.hero-button{
-   /* padding-top: 20px;*/
-}
 @media (max-width: 768px) {
     .hero{
         height: 590px;
@@ -251,7 +253,7 @@ h4{
 }
             /*Skills*/
 .skills{
-    margin-top: 65px;
+    padding-top: 65px;
 }
 .skills-items {
   display: flex;
@@ -303,6 +305,18 @@ h4{
   width: 62px;
   height: 50px; 
 }
+@media (max-width: 768px) {
+    .skills-items > * {
+        flex-basis: 40%;
+}
+    .skills-item{
+        margin: 20px;
+    }
+    .skills-item p{
+        line-height: 22px;
+}
+}
+        /*Portfolio*/
 .portfolio{
     margin-top: 60px;
 }
