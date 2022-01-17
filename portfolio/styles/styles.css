@@ -124,6 +124,10 @@ h4{
         font-size: 32px;
         margin: 0;
         }
+    .video-button{
+        width: 75px;
+        height: 75px;
+    }
     } 
 .section-title{
     width: 50%;
@@ -209,6 +213,12 @@ h4{
 }
 .lang-switch_active{
     color: var(--color-gold);
+}
+@media (max-width: 768px) {
+    .header{
+        background-position: -5px -30px;
+         background-size: auto 620px;
+    }
 }
 .main{
     margin: 0;
@@ -369,11 +379,21 @@ h4{
   align-items: center;
   margin-top: 30px;
 }
+.video-player img{
+    width: 100%;
+}
 .video-button_position{
     position: absolute;
     top: 288px;
     left: 656px;
 }
+@media (max-width: 768px){
+    .video-button_position{
+        top: 144px;
+        left: 328px;
+    }
+}
+        /*Price*/
 .price{
     margin-top: 65px;
 }
