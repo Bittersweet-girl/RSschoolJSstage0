@@ -125,8 +125,8 @@ h4{
         margin: 0;
         }
     .video-button{
-        width: 75px;
-        height: 75px;
+        width: 65px;
+        height: 65px;
     }
     } 
 .section-title{
@@ -370,7 +370,7 @@ h4{
 }
         /*Video*/
 .video{
-    margin-top: 65px;
+    padding-top: 65px;
 }
 .video-player{
     position: relative;
@@ -388,9 +388,15 @@ h4{
     left: 656px;
 }
 @media (max-width: 768px){
+    .video{
+        padding-top: 80px
+    }
+    .video-player{
+        margin-top: 50px;
+    }
     .video-button_position{
-        top: 144px;
-        left: 328px;
+        top: 177px;
+        left: 350px;
     }
 }
         /*Price*/
@@ -427,6 +433,12 @@ h4{
 .price-button{
     margin-top: 30px;
 }
+@media (max-width: 768px){
+    .price-items{
+        justify-content: center;
+    }
+}
+        /*Contacts*/
 .contacts{
     margin-top: 100px;
     background: url('.././assets/img/contacts-bg.jpg');
