@@ -370,7 +370,7 @@ h4{
 }
         /*Video*/
 .video{
-    padding-top: 65px;
+    padding: 65px 130px 0;
 }
 .video-player{
     position: relative;
@@ -385,11 +385,11 @@ h4{
 .video-button_position{
     position: absolute;
     top: 288px;
-    left: 656px;
+    left: 638px;
 }
 @media (max-width: 768px){
     .video{
-        padding-top: 80px
+        padding: 80px 0 0;
     }
     .video-player{
         margin-top: 50px;
@@ -401,7 +401,7 @@ h4{
 }
         /*Price*/
 .price{
-    margin-top: 65px;
+    padding-top: 65px;
 }
 .price-items{
     display: flex;
@@ -411,8 +411,8 @@ h4{
   padding: 0px 20px;
 }
 .price-item{
-    border: 1px solid var(--color-gold);
-    padding: 15px 115px 45px 115px;
+    border: 3px solid var(--color-gold);
+    padding: 15px 115px 45px;
 }
 .price-item span{
     display: block;
@@ -434,8 +434,19 @@ h4{
     margin-top: 30px;
 }
 @media (max-width: 768px){
+    .price{
+        padding-top: 111px;
+    }
     .price-items{
         justify-content: center;
+        gap: 50px;
+        margin-top: 50px;
+    }
+    .price-item{
+        padding: 15px 97px 40px;
+    }
+    .price-item span{
+        margin-top: 4px;
     }
 }
         /*Contacts*/
