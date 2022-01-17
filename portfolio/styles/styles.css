@@ -170,9 +170,8 @@ h4{
     height: 90px;
 }
 .logo{
-  margin: 20px;
+  margin: 25px 18px;
 }
-.logo
 .logo_pic{
     display: inline-block;
     background: url('.././assets/svg/logo.svg');
@@ -198,7 +197,7 @@ h4{
   margin: 0;
 }
 .nav__link{
-    padding: 0px 15px;
+    padding: 0px 17px;
     text-decoration: none;
 }
 .nav__link:hover{
@@ -235,7 +234,7 @@ h4{
 }
 .hero-content{
     display: block;
-    max-width: 470px;
+    max-width: 550px;
     padding-top: 160px;
     padding-left: 80px;
 }
@@ -244,8 +243,11 @@ h4{
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
+    margin: 10px 0;
 }
-
+.hero-button{
+    margin-top: 25px;
+}
 @media (max-width: 768px) {
     .hero{
         height: 500px;
@@ -255,12 +257,14 @@ h4{
     .hero-content{
         padding-left: 60px;
         padding-top: 80px;
+        max-width: 485px;
     }
     .hero p{
         line-height: 24px;
+        margin: 18px 0;
     }
     .hero-button{
-        padding-top: 40px;
+        margin-top: 60px;
     }
 }
             /*Skills*/
@@ -321,11 +325,16 @@ h4{
     .skills{
         padding-top: 80px;
     }
+    .skills-items{
+        justify-content: space-around;
+        padding: 0px 38px;
+    }
     .skills-items > * {
-        flex-basis: 45%;
+        flex-basis: 40%;
     }
     .skills-item{
-        margin: 15px 15px 55px;
+        margin: 35px 0px 26px;
+        padding: 10px 10px 0;
     }
     .skills-item p{
         line-height: 22px;
@@ -354,7 +363,7 @@ h4{
 }
 @media (max-width: 768px) {
     .portfolio{
-        padding-top: 100px;
+        padding-top: 130px;
     }
     .portfolio-buttons{
         flex-wrap: wrap;
@@ -435,7 +444,7 @@ h4{
 }
 @media (max-width: 768px){
     .price{
-        padding-top: 111px;
+        padding-top: 109px;
     }
     .price-items{
         justify-content: center;
@@ -453,7 +462,7 @@ h4{
     background-size: auto 700px;
     background-position: 110px 103px;
     background-repeat: no-repeat;
-    height: 700px;
+    height: 800px;
 }
 .contacts-content{
     max-width: 450px;
@@ -588,6 +597,9 @@ h4{
         justify-content: center;
         align-items: center;
     }
+    .footer-content__github{
+        height: 40px;
+    }
     .footer-content__github span{
         margin: 0px 10px 0;
     } 
@@ -597,5 +609,8 @@ h4{
     .footer-links{
         justify-content: center;
         padding: 0;
+    }
+    .footer__link{
+        padding: 15px 10px 0;
     }
 }
