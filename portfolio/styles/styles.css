@@ -257,6 +257,7 @@ h4{
       width: 620px;
       height: 100%;
       background-color: var(--color-black);
+      transition: 0.5s;
     }
     .header__nav.open{
       right: 0;
