@@ -189,34 +189,93 @@ h4{
     margin-top: 20px;
     margin-left: auto;
 }
-.nav{
-    display: flex;
+.header__list{
+  display: flex;
   justify-content: flex-end;
   align-items: center;
   list-style: none;
   margin: 0;
 }
-.nav__link{
+.header__link{
     padding: 0px 17px;
     text-decoration: none;
 }
-.nav__link:hover{
+.header__link:hover{
     color: var(--color-gold);
 }
-.lang-switch{
+.header__switch{
     margin-top: 20px;
     margin-right: 10px;
 }   
-.lang-switch a{
+.header__switch a{
     padding: 0px 10px;
 }
-.lang-switch_active{
+.header__switch_active{
     color: var(--color-gold);
+}
+.header__burger{
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 28px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 2;
+  margin: 31px 64px 0 0;
+}
+.burger__line{
+  width: 80%;
+  height: 2px;
+  background-color: var(--color-white);
+  margin: 3.5px 0;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+}
+.header__burger.open .burger__line_1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.header__burger.open .burger__line_2 {
+  opacity: 0;
+}
+.header__burger.open .burger__line_3 {
+  transform: rotate(45deg) translate(-6px, -6px);
 }
 @media (max-width: 768px) {
     .header{
-        background-position: -5px -30px;
-         background-size: auto 620px;
+      background-position: -5px -30px;
+      background-size: auto 620px;
+    }
+    .header__nav {
+      margin: 0;
+      overflow-x: hidden;
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -620px;
+      width: 620px;
+      height: 100%;
+      background-color: var(--color-black);
+    }
+    .header__nav.open{
+      right: 0;
+    }
+    .header__list{
+      z-index: 2;
+      display: block;
+      position: absolute;
+      margin: 134px 0 0 127px;
+    }
+    .header__list a{
+      font-size: 35px;
+      line-height: 73px;
+    }
+    .header__switch{
+      margin-left: auto;
+    }
+    .header__burger{
+      display: flex;
     }
 }
 .main{
