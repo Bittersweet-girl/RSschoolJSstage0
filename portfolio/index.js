@@ -1,6 +1,7 @@
 const hamburger = document.querySelector('.header__burger');
 const headerNav = document.querySelector('.header__nav');
 
+
 function toggleMenu() {
   hamburger.classList.toggle('open');
   headerNav.classList.toggle('open');

@@ -23,6 +23,8 @@ body{
     justify-content: space-between;
     margin: 0;
     padding: 0;
+      overflow-x: hidden;
+
 }
     /*Buttons*/
 .button{
@@ -246,15 +248,17 @@ h4{
     .header{
       background-position: -5px -30px;
       background-size: auto 620px;
+      overflow-x: hidden;
+    }
+    .header-content{
+      overflow-x: hidden;
     }
     .header__logo {
-    margin: 25px 60px;
+      margin: 25px 60px;
     }
     .header__nav {
       margin: 0;
-      overflow-x: hidden;
-      content: '';
-      position: absolute;
+      position: fixed;
       top: 0;
       right: -620px;
       width: 620px;
