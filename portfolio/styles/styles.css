@@ -183,8 +183,8 @@ h4.light{
     overflow-x: hidden;
     margin: 0 auto;
 }
-.title::before,
-.title::after {
+.title:before,
+.title:after {
 	content: '';
 	display: inline-block;
 	vertical-align: middle;
@@ -195,14 +195,14 @@ h4.light{
 	border: solid var(--color-black);
 	border-width: 0 10px;
 }
-.light.title::before,
-.light.title::after{
-  border: solid var(--color-white);
+.section-title.light > .title:before,
+.section-title.light > .title:after{
+  background: var(--color-black);
 }
-.title::before {
+.title:before {
 	margin-left: -100%;
 }
-.title::after {
+.title:after {
 	margin-right: -100%;
 }
     /*Main content*/
