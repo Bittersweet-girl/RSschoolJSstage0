@@ -71,6 +71,7 @@ function addLangClickHandler(){
       selectActiveLang(activeLang);
       let lang = e.target.dataset.lang;
       getTranslate(lang);
+      localStorage.setItem('lang', lang);
     }
   });
 }
@@ -95,14 +96,37 @@ function getTranslate(lang) {
 
 function addSwitchClickHandler(){
   document.querySelector('.header__switch_ico').addEventListener('click', (e) => {
-    e.target.classList.toggle('light');
+    if (localStorage.getItem('theme') == 'light') {
+      localStorage.removeItem('theme') == 'light'
+    } else {
+      localStorage.setItem('theme', 'light')
+    }
     addLightTheme();
   });
 }
 addSwitchClickHandler();
 
 function addLightTheme(){
+  document.querySelector('.header__switch_ico').classList.toggle('light');
   document.querySelectorAll('.skills, .portfolio, .video, .price, body, h2, h3, h4, .title::before, .title::after, .button__blank, .contacts-title').forEach(el => {
     el.classList.toggle('light');
   });
 }
+
+function setLocalStorage() {
+  localStorage.setItem('lang', lang);
+  localStorage.setItem('theme', theme);
+}
+window.addEventListener('beforeunload', setLocalStorage);
+
+function getLocalStorage() {
+  if(localStorage.getItem('lang')) {
+    const lang = localStorage.getItem('lang');
+    getTranslate(lang);
+  }
+  if(localStorage.getItem('theme')) {
+    const theme = localStorage.getItem('theme');
+    addLightTheme(theme);
+  }
+}
+window.addEventListener('load', getLocalStorage);
