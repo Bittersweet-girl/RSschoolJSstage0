@@ -108,7 +108,7 @@ addSwitchClickHandler();
 
 function addLightTheme(){
   document.querySelector('.header__switch_ico').classList.toggle('light');
-  document.querySelectorAll('.skills, .portfolio, .video, .price, body, h2, h3, h4, .section-title, .button__blank, .contacts-title').forEach(el => {
+  document.querySelectorAll('.skills, .portfolio, .video, .price, body, h2, h3, h4, .section-title, .button__blank, .contacts-title, .header__nav, .header__burger').forEach(el => {
     el.classList.toggle('light');
   });
 }
