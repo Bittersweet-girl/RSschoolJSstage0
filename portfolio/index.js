@@ -22,11 +22,9 @@ headerNav.addEventListener('click', closeMenu);//слушает клик на с
 
 window.onload = function(){
 preloadImages();
-changeImageOnSeasonClick();
+addSeasonClickHandler();
 addLangClickHandler();
 }
-
-const portfolioImg = document.querySelectorAll('.portfolio-photo');
 
 function preloadImages() { 
 const seasons = ['summer', 'winter', 'spring', 'autumn'];  
@@ -38,18 +36,22 @@ const seasons = ['summer', 'winter', 'spring', 'autumn'];
   })
 }
 
-function changeImageOnSeasonClick() {
+function addSeasonClickHandler() {
   document.querySelector('.portfolio-buttons').addEventListener('click', (e) => {
     if (e.target.classList.contains('button')) {
       let activeBtn = e.target;
       removeActiveBtn();
       selectActiveBtn(activeBtn);
       let season = e.target.dataset.season;
-      portfolioImg.forEach((img, index) => {
-        img.src = `./assets/img/${season}/${index + 1}.jpg`;
-      });
+      changePhoto(season);
     };
   });
+}
+
+function changePhoto(season){
+ document.querySelectorAll('.portfolio-photo').forEach((img, index) => {
+        img.src = `./assets/img/${season}/${index + 1}.jpg`;
+      });
 }
 
 function removeActiveBtn() {
