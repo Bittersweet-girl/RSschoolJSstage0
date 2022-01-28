@@ -20,12 +20,6 @@ function closeMenu() { //закрывает меню при нажатии на 
 }
 headerNav.addEventListener('click', closeMenu);//слушает клик на ссылку
 
-window.onload = function(){
-preloadImages();
-addSeasonClickHandler();
-addLangClickHandler();
-}
-
 function preloadImages() { 
 const seasons = ['summer', 'winter', 'spring', 'autumn'];  
   seasons.forEach((el) => {
@@ -35,6 +29,7 @@ const seasons = ['summer', 'winter', 'spring', 'autumn'];
       }
   })
 }
+preloadImages();
 
 function addSeasonClickHandler() {
   document.querySelector('.portfolio-buttons').addEventListener('click', (e) => {
@@ -47,6 +42,7 @@ function addSeasonClickHandler() {
     };
   });
 }
+addSeasonClickHandler();
 
 function changePhoto(season){
  document.querySelectorAll('.portfolio-photo').forEach((img, index) => {
@@ -68,7 +64,7 @@ function selectActiveBtn(activeBtn) {
 }
 
 function addLangClickHandler(){
-  document.querySelector('.header__switch').addEventListener('click', (e) => {
+  document.querySelector('.header__lang').addEventListener('click', (e) => {
     if (e.target.classList.contains("lang")){
       let activeLang = e.target;
       removeActiveLang();
@@ -78,20 +74,35 @@ function addLangClickHandler(){
     }
   });
 }
+addLangClickHandler();
 
 function removeActiveLang() {
-  let btn = document.querySelectorAll('.header__switch .lang');
+  let btn = document.querySelectorAll('.header__lang .lang');
   btn.forEach(btn => {
-    btn.classList.remove('header__switch_active');
+    btn.classList.remove('header__lang_active');
   });
 }
 
 function selectActiveLang(activeLang) {
-  activeLang.classList.add('header__switch_active');
+  activeLang.classList.add('header__lang_active');
 }
 
 function getTranslate(lang) {
   document.querySelectorAll('[data-i18]').forEach(el => {
       el.textContent = i18Obj[lang][el.dataset.i18];
   })
+}
+
+function addSwitchClickHandler(){
+  document.querySelector('.header__switch_ico').addEventListener('click', (e) => {
+    e.target.classList.toggle('light');
+    addLightTheme();
+  });
+}
+addSwitchClickHandler();
+
+function addLightTheme(){
+  document.querySelectorAll('.skills, .portfolio, .video, .price, body, h2, h3, h4, .title::before, .title::after, .button__blank, .contacts-title').forEach(el => {
+    el.classList.toggle('light');
+  });
 }
