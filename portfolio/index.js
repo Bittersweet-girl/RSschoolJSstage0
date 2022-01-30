@@ -8,17 +8,14 @@ function toggleMenu() {//добавить и убрать класс open бур
   headerNav.classList.toggle('open');
 }
 hamburger.addEventListener('click', toggleMenu);//слушает клик на бургер
-headerNav.addEventListener('click', toggleMenu);//слушает клик на меню
-
-const headerLink = document.querySelectorAll('.header__link');//получить ссылку по классу
+headerNav.addEventListener('click', () => {toggleMenu(); closeMenu();});//слушает клик на меню
 
 function closeMenu() { //закрывает меню при нажатии на ссылку
-  if (headerLink.target.classList.contains('header__link')) {
+  if (document.querySelectorAll('.header__link').target.classList.contains('header__link')) {
     hamburger.classList.remove('open');
     headerNav.classList.remove('open');
   }
 }
-headerNav.addEventListener('click', closeMenu);//слушает клик на ссылку
 
 function preloadImages() { 
 const seasons = ['summer', 'winter', 'spring', 'autumn'];  
