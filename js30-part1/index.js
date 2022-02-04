@@ -1,19 +1,32 @@
-const button = document.querySelector('.button__play');
-function togglePauseBtn(){
-  button.classList.toggle('pause');
-}
-button.addEventListener('click', togglePauseBtn);
+let isPlay = false;
 
-const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
-// function preloadImages(birds) { 
-//   birds.forEach((el) => {
-//         for (let i = 1; i <= 6; i++) {
-//             const img = new Image();
-//             img.src = `./assets/img/${i}.jpg`;//??????
-//         }
-//     })
-//   }
-//   preloadImages();
+function togglePauseBtn(){
+  document.querySelector('.button__play').classList.toggle('pause');
+}
+function addBtnClickHandler(){
+  document.querySelector('.button__play').addEventListener('click', (e) => {
+    togglePauseBtn();
+    playAudio();
+  });
+}
+addBtnClickHandler();
+
+const audio = new Audio();
+
+function playAudio(bird) {
+  if (!isPlay){
+    audio.src = `./assets/audio/${bird}.mp3`;
+    audio.currentTime = 0;
+    audio.play();
+    isPlay = true;
+  } 
+  else{
+    audio.pause();
+    isPlay = false;
+  }
+}
+// const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
+
 function addLogoClickHandler() {
   document.querySelector('.header-logo').addEventListener('click', (e) => {
     let activeBird = e.target;
@@ -21,12 +34,14 @@ function addLogoClickHandler() {
     selectActiveBird(activeBird);
     let bird = e.target.dataset.bird;
     changePhoto(bird);
+    playAudio(bird);
+    togglePauseBtn();
     localStorage.setItem('bird', bird);
   });
 }
 addLogoClickHandler();
 
-  function addBirdClickHandler() {
+function addBirdClickHandler() {
     document.querySelector('.header-nav-list').addEventListener('click', (e) => {
       if (e.target.classList.contains('header-nav__item')) {
         let activeBird = e.target;
@@ -34,27 +49,29 @@ addLogoClickHandler();
         selectActiveBird(activeBird);
         let bird = e.target.dataset.bird;
         changePhoto(bird);
+        playAudio(bird);
+        togglePauseBtn();
         localStorage.setItem('bird', bird);
       };
     });
   }
-  addBirdClickHandler();
+addBirdClickHandler();
 
-  function removeActiveBird() {
+function removeActiveBird() {
     let btn = document.querySelectorAll('.header-nav-list .header-nav__item');
     btn.forEach(btn => {
       btn.classList.remove('active');
     });
     document.querySelector('.header-logo').classList.remove('active');
-  }
+}
   
-  function selectActiveBird(activeBird) {
+function selectActiveBird(activeBird) {
     activeBird.classList.add('active');
-  }
+}
   
-  function changePhoto(bird){
+function changePhoto(bird){
    document.querySelector('.main').style.backgroundImage = `url('./assets/img/${bird}.jpg')`;
-  }
+}
 
 function setLocalStorage() {
   localStorage.setItem('bird', bird);
