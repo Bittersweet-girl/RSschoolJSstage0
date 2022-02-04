@@ -16,14 +16,14 @@ body {
   line-height: 2;
   color: #fff;
 }
-
+      /*Header*/
 .header {  
   width: 100%;
   background-color: #000;
   margin: 0 auto;
 }
 
-.container {
+.wrapper {
   width: calc(100% - 40px);
   max-width: 1440px;
   margin: 0 auto;
@@ -38,7 +38,7 @@ body {
   padding: 5px 20px;
 }
 
-.logo {
+.header-logo {
   width: 50px;
   height: 50px;
   background-image: url('.././assets/svg/logo.svg');
@@ -47,16 +47,16 @@ body {
   transition: 0.3s;
 }
 
-.logo:hover {
+.header-logo:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
 }
 
-.nav {
+.header-nav {
   margin-left: auto;
 }
 
-.nav-list {
+.header-nav-list {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,7 +64,7 @@ body {
   list-style: none;
 }
 
-.nav__item {
+.header-nav__item {
   padding: 0 20px;
   color: #fff;
   font-size: 20px;
@@ -73,23 +73,20 @@ body {
   cursor: pointer;
 }
 
-/* .nav__item:last-child {
-  padding-right: 0;
-} */
-
-.nav__item:hover {
+.header-nav__item:hover {
   color: #bdae82;
 }
 
-.nav__item.active {
+.header-nav__item.active {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
   contrast(87%);
 }
 
-.nav__item.active:hover {
+.header-nav__item.active:hover {
   filter: none;
 }
 
+      /*Main*/
 .main {
   display: flex;
   justify-content: center;
@@ -100,7 +97,7 @@ body {
   background-size: cover;
 }
 
-.play {
+.button__play {
   width: 160px;
   height: 160px;
   background-image: url(".././assets/svg/play.svg");
@@ -110,14 +107,15 @@ body {
   transition: 0.3s;
 }
 
-.play:focus {
+.button__play:focus {
   border: 0;
 }
 
-.play:hover {
+.button__play:hover {
   filter: brightness(120%);
 }
 
+      /*Footer*/
 .footer {  
   background-color: #000;
 }
@@ -161,4 +159,27 @@ body {
 .footer-content__rss:hover {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
   contrast(87%);
+}
+
+@media (max-width: 768px){
+  .header-nav__item{
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 30px;
+  }
+  .header-logo {
+    width: 40px;
+    height: 40px;
+  }
+  .button__play {
+    width: 100px;
+    height: 100px;
+  }
+  .footer-content{
+    font-size: 16px;
+  }
+  .footer-content__rss {
+    width: 115px;
+    height: 30px;
+  }
 }
