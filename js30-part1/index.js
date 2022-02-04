@@ -8,8 +8,8 @@ function removePauseBtn(){
   document.querySelector('.button__play').classList.remove('pause');
 }
 
-function addBtnClickHandler(){
-  document.querySelector('.button__play').addEventListener('click', (e) => {
+function addPlayClickHandler(){
+  document.querySelector('.button__play').addEventListener('click', () => {
     if (!isPlay) {
       addPauseBtn();
       audio.play();
@@ -21,7 +21,49 @@ function addBtnClickHandler(){
     }
   });
 }
-addBtnClickHandler();
+addPlayClickHandler();
+
+const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
+
+function addPrevClickHandler(){
+  document.querySelector('.button__prev').addEventListener('click', () => {
+      let i = birds.indexOf(localStorage.getItem('bird'));
+      let bird1;
+      if (i == 0){
+        bird1 = birds[birds.length - 1]
+        } else{
+          bird1 = birds[i - 1];
+        }
+      changePhoto(bird1);
+      playAudio(bird1);
+      localStorage.setItem('bird', bird1);
+      addPauseBtn();
+      // if document.querySelector('.header-nav__item').dataset.bird ==
+  });
+}
+addPrevClickHandler();
+
+function addNextClickHandler(){
+  document.querySelector('.button__next').addEventListener('click', () => {
+      let i = birds.indexOf(localStorage.getItem('bird'));
+      let bird1;
+      if (i == birds.length - 1){
+        bird1 = birds[0]
+        } else{
+          bird1 = birds[i + 1];
+        }
+      changePhoto(bird1);
+      playAudio(bird1);
+      localStorage.setItem('bird', bird1);
+      addPauseBtn();
+  });
+}
+addNextClickHandler();
+
+// function prevAudio(){
+  
+  
+// }
 
 function defaultAudio(){
   audio.src = './assets/audio/forest.mp3';
@@ -36,7 +78,6 @@ function playAudio(bird) {
     audio.play();
     isPlay = true;
 }
-// const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
 
 function addLogoClickHandler() {
   document.querySelector('.header-logo').addEventListener('click', (e) => {
