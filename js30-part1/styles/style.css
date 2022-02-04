@@ -94,7 +94,7 @@ body {
       /*Main*/
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: calc(100vh - 120px);
   min-height: 280px;
@@ -110,6 +110,7 @@ body {
   background-color: transparent;
   border: 0;  
   transition: 0.3s;
+  cursor: pointer;
 }
 .button__play.pause{
   background-image: url(".././assets/svg/pause.svg");
@@ -120,6 +121,42 @@ body {
 
 .button__play:hover {
   filter: brightness(120%);
+}
+.button__prev {
+  width: 160px;
+  height: 160px;
+  background-image: url(".././assets/svg/previous.svg");
+  background-size: contain;
+  background-color: transparent;
+  border: 0;  
+  transition: 0.3s;
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+  cursor: pointer;
+}
+.button__prev:focus {
+  border: 0;
+}
+.button__prev:hover {
+  filter: brightness(98%);
+}
+.button__next {
+  width: 160px;
+  height: 160px;
+  background-image: url(".././assets/svg/next.svg");
+  background-size: contain;
+  background-color: transparent;
+  border: 0;  
+  transition: 0.3s;
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+  contrast(87%);
+  cursor: pointer;
+}
+.button__next:focus {
+  border: 0;
+}
+.button__next:hover {
+  filter: brightness(98%);
 }
 
       /*Footer*/
