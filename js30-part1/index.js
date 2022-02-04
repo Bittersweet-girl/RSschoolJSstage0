@@ -38,7 +38,8 @@ function addPrevClickHandler(){
       playAudio(bird1);
       localStorage.setItem('bird', bird1);
       addPauseBtn();
-      // if document.querySelector('.header-nav__item').dataset.bird ==
+      removeActiveBird();
+    selectActiveBird(bird1);
   });
 }
 addPrevClickHandler();
@@ -56,14 +57,11 @@ function addNextClickHandler(){
       playAudio(bird1);
       localStorage.setItem('bird', bird1);
       addPauseBtn();
+      removeActiveBird();
+    selectActiveBird(bird1);
   });
 }
 addNextClickHandler();
-
-// function prevAudio(){
-  
-  
-// }
 
 function defaultAudio(){
   audio.src = './assets/audio/forest.mp3';
@@ -81,10 +79,9 @@ function playAudio(bird) {
 
 function addLogoClickHandler() {
   document.querySelector('.header-logo').addEventListener('click', (e) => {
-    let activeBird = e.target;
-    removeActiveBird();
-    selectActiveBird(activeBird);
     let bird = e.target.dataset.bird;
+    removeActiveBird();
+    selectActiveBird(bird);
     changePhoto(bird);
     playAudio(bird);
     localStorage.setItem('bird', bird);
@@ -96,10 +93,9 @@ addLogoClickHandler();
 function addBirdClickHandler() {
     document.querySelector('.header-nav-list').addEventListener('click', (e) => {
       if (e.target.classList.contains('header-nav__item')) {
-        let activeBird = e.target;
-        removeActiveBird();
-        selectActiveBird(activeBird);
         let bird = e.target.dataset.bird;
+        removeActiveBird();
+        selectActiveBird(bird);
         changePhoto(bird);
         playAudio(bird);
         localStorage.setItem('bird', bird);
@@ -117,9 +113,15 @@ function removeActiveBird() {
   document.querySelector('.header-logo').classList.remove('active');
 }
   
-function selectActiveBird(activeBird) {
-  activeBird.classList.add('active');
+function selectActiveBird(bird) {
+  let actBird = document.querySelectorAll('.header-nav__item');
+  actBird.forEach(actBird => {
+  if (actBird.dataset.bird == bird){
+    actBird.classList.add('active');
+  }
+  });
 }
+
   
 function changePhoto(bird){
   document.querySelector('.main').style.backgroundImage = `url('./assets/img/${bird}.jpg')`;
