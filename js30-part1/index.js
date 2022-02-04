@@ -31,16 +31,10 @@ function defaultAudio(){
 }
 
 function playAudio(bird) {
-  if (!isPlay){
     audio.src = `./assets/audio/${bird}.mp3`;
     audio.currentTime = 0;
     audio.play();
     isPlay = true;
-  } 
-  else{
-    audio.pause();
-    isPlay = false;
-  }
 }
 // const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
 
