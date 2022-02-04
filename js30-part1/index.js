@@ -16,9 +16,12 @@ const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
 //   preloadImages();
 function addLogoClickHandler() {
   document.querySelector('.header-logo').addEventListener('click', (e) => {
-      let bird = e.target.dataset.bird;
-      changePhoto(bird);
-      localStorage.setItem('bird', bird);
+    let activeBird = e.target;
+    removeActiveBird();
+    selectActiveBird(activeBird);
+    let bird = e.target.dataset.bird;
+    changePhoto(bird);
+    localStorage.setItem('bird', bird);
   });
 }
 addLogoClickHandler();
@@ -42,6 +45,7 @@ addLogoClickHandler();
     btn.forEach(btn => {
       btn.classList.remove('active');
     });
+    document.querySelector('.header-logo').classList.remove('active');
   }
   
   function selectActiveBird(activeBird) {
