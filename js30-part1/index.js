@@ -1,17 +1,34 @@
 let isPlay = false;
+const audio = new Audio();
 
-function togglePauseBtn(){
-  document.querySelector('.button__play').classList.toggle('pause');
+function addPauseBtn(){
+  document.querySelector('.button__play').classList.add('pause');
 }
+function removePauseBtn(){
+  document.querySelector('.button__play').classList.remove('pause');
+}
+
 function addBtnClickHandler(){
   document.querySelector('.button__play').addEventListener('click', (e) => {
-    togglePauseBtn();
-    playAudio();
+    if (!isPlay) {
+      addPauseBtn();
+      audio.play();
+      isPlay = true;
+    } else {
+      removePauseBtn();
+      audio.pause();
+      isPlay = false;
+    }
   });
 }
 addBtnClickHandler();
 
-const audio = new Audio();
+function defaultAudio(){
+  audio.src = './assets/audio/forest.mp3';
+  audio.currentTime = 0;
+  audio.pause();
+  isPlay = false;
+}
 
 function playAudio(bird) {
   if (!isPlay){
@@ -35,8 +52,8 @@ function addLogoClickHandler() {
     let bird = e.target.dataset.bird;
     changePhoto(bird);
     playAudio(bird);
-    togglePauseBtn();
     localStorage.setItem('bird', bird);
+    addPauseBtn();
   });
 }
 addLogoClickHandler();
@@ -50,27 +67,27 @@ function addBirdClickHandler() {
         let bird = e.target.dataset.bird;
         changePhoto(bird);
         playAudio(bird);
-        togglePauseBtn();
         localStorage.setItem('bird', bird);
+        addPauseBtn();
       };
     });
   }
 addBirdClickHandler();
 
 function removeActiveBird() {
-    let btn = document.querySelectorAll('.header-nav-list .header-nav__item');
-    btn.forEach(btn => {
-      btn.classList.remove('active');
-    });
-    document.querySelector('.header-logo').classList.remove('active');
+  let btn = document.querySelectorAll('.header-nav-list .header-nav__item');
+  btn.forEach(btn => {
+  btn.classList.remove('active');
+  });
+  document.querySelector('.header-logo').classList.remove('active');
 }
   
 function selectActiveBird(activeBird) {
-    activeBird.classList.add('active');
+  activeBird.classList.add('active');
 }
   
 function changePhoto(bird){
-   document.querySelector('.main').style.backgroundImage = `url('./assets/img/${bird}.jpg')`;
+  document.querySelector('.main').style.backgroundImage = `url('./assets/img/${bird}.jpg')`;
 }
 
 function setLocalStorage() {
@@ -84,4 +101,7 @@ function getLocalStorage() {
     changePhoto(bird);
   }
 }
-window.addEventListener('load', getLocalStorage);
+window.addEventListener('load', () => {
+  getLocalStorage();
+  defaultAudio();
+});
