@@ -1,16 +1,20 @@
 let isPlay = false;
 const audio = new Audio();
+const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
+const logo = document.querySelector('.header-logo');
+const play = document.querySelector('.button__play');
+const birdItems = document.querySelectorAll('.header-nav-list .header-nav__item');
 
 
 function addPauseBtn(){
-  document.querySelector('.button__play').classList.add('pause');
+  play.classList.add('pause');
 }
 function removePauseBtn(){
-  document.querySelector('.button__play').classList.remove('pause');
+  play.classList.remove('pause');
 }
 
 function addPlayClickHandler(){
-  document.querySelector('.button__play').addEventListener('click', () => {
+  play.addEventListener('click', () => {
     if (!isPlay) {
       addPauseBtn();
       audio.play();
@@ -23,8 +27,6 @@ function addPlayClickHandler(){
   });
 }
 addPlayClickHandler();
-
-const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
 
 function addPrevClickHandler(){
   document.querySelector('.button__prev').addEventListener('click', () => {
@@ -79,7 +81,7 @@ function playAudio(bird) {
 }
 
 function addLogoClickHandler() {
-  document.querySelector('.header-logo').addEventListener('click', (e) => {
+  logo.addEventListener('click', (e) => {
     let bird = e.target.dataset.bird;
     removeActiveBird();
     selectActiveBird(bird);
@@ -107,22 +109,22 @@ function addBirdClickHandler() {
 addBirdClickHandler();
 
 function removeActiveBird() {
-  let btn = document.querySelectorAll('.header-nav-list .header-nav__item');
+  let btn = birdItems;
   btn.forEach(btn => {
   btn.classList.remove('active');
   });
-  document.querySelector('.header-logo').classList.remove('active');
+  logo.classList.remove('active');
 }
   
 function selectActiveBird(bird) {
-  let actBird = document.querySelectorAll('.header-nav__item');
-  actBird.forEach(actBird => {
-  if (actBird.dataset.bird == bird){
-    actBird.classList.add('active');
+  let activeBird = birdItems;
+  activeBird.forEach(activeBird => {
+  if (activeBird.dataset.bird == bird){
+    activeBird.classList.add('active');
   }
   });
-  if (document.querySelector('.header-logo').dataset.bird == bird){
-    document.querySelector('.header-logo').classList.add('active');
+  if (logo.dataset.bird == bird){
+    logo.classList.add('active');
   }
 }
 
