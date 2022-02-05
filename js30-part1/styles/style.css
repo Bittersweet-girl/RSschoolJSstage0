@@ -67,10 +67,11 @@ body {
   align-items: center;
   height: 50px;  
   list-style: none;
+  position: relative;
 }
 
 .header-nav__item {
-  padding: 0 20px;
+  padding: 0 30px;
   color: #fff;
   font-size: 20px;
   line-height: 50px;
@@ -81,6 +82,9 @@ body {
 .header-nav__item:hover {
   color: #bdae82;
 }
+.header-nav__item:hover a{
+  display: block;
+}
 
 .header-nav__item.active {
   filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -89,6 +93,21 @@ body {
 
 .header-nav__item.active:hover {
   filter: none;
+}
+.header-nav__item a{
+  padding: 0 15px;
+  font-size: 20px;
+  line-height: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+  background-color: #000;
+  display: none;
+  position: absolute;
+  text-decoration: none;
+  color: #fff;
+}
+.header-nav__item a:hover{
+  color: #bdae82;
 }
 
       /*Main*/

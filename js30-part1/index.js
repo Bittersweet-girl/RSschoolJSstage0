@@ -1,6 +1,7 @@
 let isPlay = false;
 const audio = new Audio();
 
+
 function addPauseBtn(){
   document.querySelector('.button__play').classList.add('pause');
 }
@@ -28,18 +29,18 @@ const birds = ['forest', 'solovey', 'drozd', 'zarynka', 'javoronok', 'slavka'];
 function addPrevClickHandler(){
   document.querySelector('.button__prev').addEventListener('click', () => {
       let i = birds.indexOf(localStorage.getItem('bird'));
-      let bird1;
+      let birdPrev;
       if (i == 0){
-        bird1 = birds[birds.length - 1]
+        birdPrev = birds[birds.length - 1]
         } else{
-          bird1 = birds[i - 1];
+          birdPrev = birds[i - 1];
         }
-      changePhoto(bird1);
-      playAudio(bird1);
-      localStorage.setItem('bird', bird1);
+      changePhoto(birdPrev);
+      playAudio(birdPrev);
+      localStorage.setItem('bird', birdPrev);
       addPauseBtn();
       removeActiveBird();
-    selectActiveBird(bird1);
+    selectActiveBird(birdPrev);
   });
 }
 addPrevClickHandler();
@@ -47,18 +48,18 @@ addPrevClickHandler();
 function addNextClickHandler(){
   document.querySelector('.button__next').addEventListener('click', () => {
       let i = birds.indexOf(localStorage.getItem('bird'));
-      let bird1;
+      let birdNext;
       if (i == birds.length - 1){
-        bird1 = birds[0]
+        birdNext = birds[0]
         } else{
-          bird1 = birds[i + 1];
+          birdNext = birds[i + 1];
         }
-      changePhoto(bird1);
-      playAudio(bird1);
-      localStorage.setItem('bird', bird1);
+      changePhoto(birdNext);
+      playAudio(birdNext);
+      localStorage.setItem('bird', birdNext);
       addPauseBtn();
       removeActiveBird();
-    selectActiveBird(bird1);
+    selectActiveBird(birdNext);
   });
 }
 addNextClickHandler();
@@ -120,6 +121,9 @@ function selectActiveBird(bird) {
     actBird.classList.add('active');
   }
   });
+  if (document.querySelector('.header-logo').dataset.bird == bird){
+    document.querySelector('.header-logo').classList.add('active');
+  }
 }
 
   
