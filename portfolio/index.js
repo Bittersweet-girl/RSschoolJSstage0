@@ -127,3 +127,28 @@ function getLocalStorage() {
   }
 }
 window.addEventListener('load', getLocalStorage);
+
+const video = document.querySelector('.video__viewer'),
+      videoBtn = document.querySelector('.video__button'),
+      playBtn = document.querySelector('.video__icon_play'),
+      progress = document.querySelector('.video__progress'),
+      volumeBtn = document.querySelector('.video__icon_volume'),
+      volume = document.querySelector('.video__volume');
+
+function toggleVideoStatus(){
+  if (video.paused) {
+    video.play();
+    videoBtn.style.display = "none";
+    playBtn.classList.remove('video__icon_play');
+    playBtn.classList.add('video__icon_pause');
+  } else{
+    video.pause();
+    videoBtn.style.display = "block";
+    playBtn.classList.add('video__icon_play');
+    playBtn.classList.remove('video__icon_pause');
+  }
+}
+
+video.addEventListener('click', toggleVideoStatus);
+videoBtn.addEventListener('click', toggleVideoStatus);
+playBtn.addEventListener('click', toggleVideoStatus);
