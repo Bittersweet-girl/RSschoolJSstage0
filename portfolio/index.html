@@ -129,8 +129,16 @@
                     <h2 class="title" data-i18="video">Video</h2>
                 </div>
                 <div class="video-player">
-                    <img src="assets/img/video-player.jpg" alt="video-player">
-                    <button class="video-button video-button_position"></button>
+                    <video class="video__viewer" poster="assets/img/video-player.jpg">
+                        <source src="assets/video/video.mp4" type="video/mp4">
+                    </video>
+                    <button class="video__button video__button_position"></button>
+                    <div class="video__controls">
+                        <div class="video__icon video__icon_play"></div>
+                        <input type="range" value="40" min="0" max="100" step="1" class="video__progress">
+                        <div class="video__icon video__icon_volume"></div>
+                        <input type="range" value="40" min="0" max="100" step="1" class="video__volume">            
+                    </div>
                 </div>
             </div>
         </section>
