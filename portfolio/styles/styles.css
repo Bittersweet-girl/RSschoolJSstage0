@@ -770,6 +770,25 @@ z-index: 3;
     }
     .video-player{
         margin-top: 50px;
+        padding: 0px 10px;
+    }
+    .video__button{
+      height: 100px;
+      width: 100px;
+    }
+    .video__icon {
+      width: 30px;
+      height: 26px;
+    }
+    .video__controls {
+      padding: 0 10px;
+    }
+    .video__progress,
+    .video__volume {
+      width: calc(80% - 140px);
+    }
+    .video__volume {
+      width: calc(20% - 20px);
     }
 }
 @media (max-width: 480px) {
@@ -778,6 +797,15 @@ z-index: 3;
     }
     .video-player{
         margin-top: 30px;
+        padding: 0px 10px;
+    }
+    .video__button{
+      height: 60px;
+      width: 60px;
+    }
+    .video__icon {
+      width: 20px;
+      height: 16px;
     }
 }
         /*Price*/
