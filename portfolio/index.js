@@ -11,10 +11,8 @@ hamburger.addEventListener('click', toggleMenu);//слушает клик на �
 headerNav.addEventListener('click', () => {toggleMenu(); closeMenu();});//слушает клик на меню
 
 function closeMenu() { //закрывает меню при нажатии на ссылку
-  if (document.querySelectorAll('.header__link').target.classList.contains('header__link')) {
     hamburger.classList.remove('open');
     headerNav.classList.remove('open');
-  }
 }
 
 function preloadImages() { 
@@ -132,6 +130,7 @@ const video = document.querySelector('.video__viewer'),
       videoBtn = document.querySelector('.video__button'),
       playBtn = document.querySelector('.video__icon_play'),
       progress = document.querySelector('.video__progress'),
+      time = document.querySelector('.video__timer'),
       volumeBtn = document.querySelector('.video__icon_volume'),
       volume = document.querySelector('.video__volume');
 
@@ -152,3 +151,37 @@ function toggleVideoStatus(){
 video.addEventListener('click', toggleVideoStatus);
 videoBtn.addEventListener('click', toggleVideoStatus);
 playBtn.addEventListener('click', toggleVideoStatus);
+
+function updateTimer(){
+  progress.value = (progress.currentTime / progress.duration) * 100;
+  let minutes = Math.floor(video.currentTime / 60);
+  if (minutes < 10){
+    minutes = '0' + String(minutes);
+  }
+  let seconds = Math.floor(video.currentTime % 60);
+  if (seconds < 10){
+    seconds = '0' + String(seconds);
+  }
+  time.innerHTML = `${minutes}:${seconds}`;
+}
+video.addEventListener('timeupdate', updateTimer);
+
+function updateProgress(){
+  video.currentTime = (progress.value * video.duration) / 100;
+}
+progress.addEventListener('change', updateProgress)
+
+function muteVolume(){
+  if (video.muted = false) {
+    
+    volumeBtn.classList.remove('video__icon_volume');
+    volumeBtn.classList.add('video__icon_mute');
+  } else {
+    video.muted = true;
+    volumeBtn.classList.add('video__icon_volume');
+    volumeBtn.classList.remove('video__icon_mute');
+  }
+  video.muted = !video.muted;
+}
+volumeBtn.addEventListener('click', muteVolume);
+// document.getElementById("theIdOfYourVideoGoesHere").volume=0;

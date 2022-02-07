@@ -716,7 +716,9 @@ z-index: 3;
 .video__icon_pause {
   background-image: url('.././assets/svg/pause.svg');
 }
-
+.video__timer{
+  font-size: var(--font3);
+}
 .video__icon_volume {
   background-image: url('.././assets/svg/volume.svg');
 }
@@ -782,6 +784,9 @@ z-index: 3;
     }
     .video__controls {
       padding: 0 10px;
+    }
+    .video__timer{
+      font-size: 10px;
     }
     .video__progress,
     .video__volume {
