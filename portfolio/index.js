@@ -127,9 +127,11 @@ function getLocalStorage() {
 window.addEventListener('load', getLocalStorage);
 
 const video = document.querySelector('.video__viewer'),
+      vidWrapper = document.querySelector('.video-player'),
       videoBtn = document.querySelector('.video__button'),
       playBtn = document.querySelector('.video__icon_play'),
       progress = document.querySelector('.video__progress'),
+      progressBar = document.querySelector(".progress__filled"),
       time = document.querySelector('.video__timer'),
       volumeBtn = document.querySelector('.video__icon_volume'),
       volume = document.querySelector('.video__volume');
@@ -164,24 +166,49 @@ function updateTimer(){
   }
   time.innerHTML = `${minutes}:${seconds}`;
 }
-video.addEventListener('timeupdate', updateTimer);
+video.addEventListener('timeupdate', () => {
+  updateTimer();
+  updateProgress();
+});
 
 function updateProgress(){
-  video.currentTime = (progress.value * video.duration) / 100;
+  var percent = (video.currentTime / video.duration) * 100;
+  progressBar.style.flexBasis = `${percent}%`;
 }
-progress.addEventListener('change', updateProgress)
+progress.addEventListener('change', updateProgress);
 
 function muteVolume(){
-  if (video.muted = false) {
-    
+  if (video.muted = !video.muted) {
+    video.muted = video.muted;
     volumeBtn.classList.remove('video__icon_volume');
     volumeBtn.classList.add('video__icon_mute');
   } else {
-    video.muted = true;
+    video.volume = 1.0;
     volumeBtn.classList.add('video__icon_volume');
     volumeBtn.classList.remove('video__icon_mute');
   }
-  video.muted = !video.muted;
 }
 volumeBtn.addEventListener('click', muteVolume);
-// document.getElementById("theIdOfYourVideoGoesHere").volume=0;
+
+function handleRangeUpdate() {
+  video[this.name] = this.value;
+}
+
+volume.addEventListener("change", handleRangeUpdate);
+volume.addEventListener("mousemove", handleRangeUpdate);
+
+var drag;
+var grap;
+
+progress.addEventListener('mouseover', function(){drag = true});
+progress.addEventListener('mouseout', function(){drag = false; grap = false});
+progress.addEventListener('mousedown', function(){grap = drag});
+progress.addEventListener('mouseup', function(){grap = false});
+progress.addEventListener('click', updateCurrentPos);
+progress.addEventListener('mousemove', function(e){ if(drag && grap){updateCurrentPos(e)}});
+
+function updateCurrentPos(e){
+  var newProgress = (e.clientX - vidWrapper.offsetLeft) / vidWrapper.clientWidth;
+  progressBar.style.flexBasis = Math.floor(newProgress * 1000) / 10 + '%';
+  video.currentTime = newProgress * video.duration;
+}

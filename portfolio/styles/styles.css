@@ -692,6 +692,9 @@ z-index: 3;
   border: 1px solid #bdae82;
   border-top: 0;
 }
+.video__controls > *{
+  margin: 0 5px;
+}
 
 .video__icon {
   width: 40px;
@@ -726,7 +729,27 @@ z-index: 3;
 .video__icon_mute {
   background-image: url('.././assets/svg/mute.svg');
 }
+.video__progress {
+  flex:10;
+  position: relative;
+  display:flex;
+  flex-basis:100%;
+  /* transition:height 0.3s; */
+  cursor:ew-resize;
+}
 
+.progress__filled {
+  width:50%;
+  background: linear-gradient(
+    to right,
+    #bdae82 0%,
+    #bdae82 40%,
+    #c8c8c8 40%,
+    #c8c8c8 100%
+  );
+  flex:0;
+  flex-basis:50%;
+}
 .video__progress,
 .video__volume {
   background: linear-gradient(
@@ -741,6 +764,7 @@ z-index: 3;
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
+  
 }
 
 .video__volume {
