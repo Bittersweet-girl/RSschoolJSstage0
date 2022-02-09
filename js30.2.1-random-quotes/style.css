@@ -110,16 +110,22 @@ h2 {
   min-height: 280px;
   background-image: url("./img/1.jpg");
   background-size: cover;
-  transition: 0.3s;
+  transition: all 0.6s ease;
 }
 .quote-container {
   border: 1px solid #000;
-  padding: 20px 20px;
+  padding: auto 20px;
   background-color: #e7d498;
   opacity: 0.7;
   width: 500px;
   height: 280px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.author{
+  font-weight: bold;
 }
 
 .footer-content {
