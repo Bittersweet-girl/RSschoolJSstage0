@@ -10,7 +10,7 @@ html {
 
 body {
   min-width: 320px;
-  background-color: #fff;
+  background-color: #e7d5987e;
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   line-height: 2;
@@ -21,13 +21,11 @@ body {
   margin: 0 auto;
 }
 
-.wrapper {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
 
 .header-content {
+  height: 100px;
+  max-width: 1440px;
+  margin: 0 auto;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -106,7 +104,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 160px);
   min-height: 280px;
   background-image: url("./img/1.jpg");
   background-size: cover;
@@ -114,7 +112,7 @@ h2 {
 }
 .quote-container {
   border: 1px solid #000;
-  padding: auto 20px;
+  padding: 50px 20px;
   background-color: #e7d498;
   opacity: 0.7;
   width: 500px;

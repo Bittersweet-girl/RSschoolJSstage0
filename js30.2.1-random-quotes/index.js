@@ -11,11 +11,10 @@ async function getData() {
   const data = await res.json();
   showData(data); 
 }
-// getData();
 
 function showData(data) {
   var rand = Math.floor(Math.random() * data.length);
-  if (data[rand].author == "null") {
+  if (data[rand].author == null) {
     quote.innerHTML = `<p> ${data[rand].text} </p>`;
   } else {
     quote.innerHTML = `<p> ${data[rand].text} </p><p class="author"> ${data[rand].author} </p>`;
