@@ -25,3 +25,4 @@ function changeBg() {
   var rand = Math.floor(Math.random() * 8);
   document.querySelector(".main").style.backgroundImage = `url('./img/${rand}.jpg')`;
 }
+window.addEventListener('load', getData);
