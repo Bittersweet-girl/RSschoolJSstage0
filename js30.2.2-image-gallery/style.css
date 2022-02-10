@@ -104,15 +104,13 @@ input:focus {
 .header-search_box i::before{
   content: "\f002";
 }
-
 .gallery-photoes{
   border: 1px solid #000;
   display: flex;
   justify-content: space-between;
   gap: 25px;
   flex-wrap: wrap;
-  margin-top: 60px;
-  padding: 0px 20px;
+  padding: 20px;
 }
 
 .footer-content {

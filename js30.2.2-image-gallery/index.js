@@ -1,4 +1,5 @@
-const url ="https://api.unsplash.com/photos/?client_id=-zj52imvTF4NBE0zRB_jUl_xpS0lYelnj2d3UmdY9zQ";
+let text = 'winter';
+const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8b2bf1e0e89e74b09193da3a3e9cf4d2&tags=${text}&format=json&nojsoncallback=1`;
 // const btn = document.querySelector(".btn");
 const galleryPhoto = document.querySelectorAll(".gallery-photo");
 const search = document.querySelector(".search");
@@ -7,24 +8,24 @@ const search = document.querySelector(".search");
 //   getData();
 //   changeBg();
 // });
+
 async function getData() {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
   showData(data);
 }
 
 function showData(data) {
-  // var rand = Math.floor(Math.random() * data.length);
-   galleryPhoto.forEach((img, i) => {
-     img.src = `${data[i].urls.regular}`;
+  galleryPhoto.forEach((img, i) => {
+     img.src = `https://farm${data.photos.photo[i].farm}.staticflickr.com/${data.photos.photo[i].server}/${data.photos.photo[i].id}_${data.photos.photo[i].secret}_w.jpg`;
    });
-  // if (data[rand].author == null) {
-  //   quote.innerHTML = `<p> ${data[rand].text} </p>`;
-  // } else {
-  //   quote.innerHTML = `<p> ${data[rand].text} </p><p class="author"> ${data[rand].author} </p>`;
-  // }
+
 }
+// function showRandom(data) {
+//   var rand = Math.floor(Math.random() * data.length);
+//   galleryPhoto.src = `https://farm${data.photos.photo[rand].farm}.staticflickr.com/${data.photos.photo[rand].server}/${data.photos.photo[rand].id}_${data.photos.photo[rand].secret}_w.jpg`;
+  
+// }
 
 
 window.addEventListener('load', getData);
