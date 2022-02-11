@@ -1,8 +1,16 @@
 let text = 'winter';
-const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8b2bf1e0e89e74b09193da3a3e9cf4d2&tags=${text}&format=json&nojsoncallback=1`;
+const search = document.querySelector(".search");
+
+search.addEventListener('change', () => {
+  console.log(text);
+  return text = search.value;
+})
+console.log(text);
+const url =
+  `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=8b2bf1e0e89e74b09193da3a3e9cf4d2&text=${text}&format=json&nojsoncallback=1`;
 // const btn = document.querySelector(".btn");
 const galleryPhoto = document.querySelectorAll(".gallery-photo");
-const search = document.querySelector(".search");
+
 
 // btn.addEventListener("click", () => {
 //   getData();

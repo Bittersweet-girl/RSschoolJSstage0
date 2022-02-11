@@ -85,12 +85,13 @@ h2 {
 }
 
 input:focus {
-  box-shadow: 0 0 5px rgba(250, 179, 46, 0.63);
-  border: 1px solid rgba(223, 163, 52, 0.616);
+  box-shadow: 0 0 5px rgba(167, 167, 167, 0.63);
+  border: 1px solid rgb(105, 105, 105);
 }
 
-.header-search_box i {
-  color: black;
+.header-search_box__item {
+  border: none;
+  background: transparent;
   position: absolute;
   cursor: pointer;
   top: 25%;
@@ -98,11 +99,14 @@ input:focus {
   transition: 1s;
 }
 
-.header-search_box i:hover {
+.header-search_box__item:hover {
   color: orange;
 }
-.header-search_box i::before{
+.header-search_box__item::before{
   content: "\f002";
+  font-family: FontAwesome;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.493);
 }
 .gallery-photoes{
   border: 1px solid #000;
