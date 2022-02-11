@@ -94,8 +94,8 @@ input:focus {
   background: transparent;
   position: absolute;
   cursor: pointer;
-  top: 25%;
-  right: 4%;
+  top: 5%;
+  right: 3%;
   transition: 1s;
 }
 
