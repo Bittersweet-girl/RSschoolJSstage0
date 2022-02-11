@@ -1,13 +1,25 @@
 const url = "https://type.fit/api/quotes";
-const btn = document.querySelector('.btn');
+const btn1 = document.querySelector('.btn1');
+const btn2 = document.querySelector('.btn2');
 const quote = document.querySelector(".quote-container");
 
-btn.addEventListener('click', () => {
+btn1.addEventListener('click', () => {
   getData();
   changeBg();
 });
+btn2.addEventListener('click', () => {
+  getQuotes();
+  changeBg();
+});
+
 async function getData() {
   const res = await fetch(url);
+  const data = await res.json();
+  showData(data); 
+}
+async function getQuotes() {
+  const quotes = "quotes.json";
+  const res = await fetch(quotes);
   const data = await res.json();
   showData(data); 
 }
