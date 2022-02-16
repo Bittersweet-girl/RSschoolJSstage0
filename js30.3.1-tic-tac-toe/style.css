@@ -11,7 +11,7 @@ html {
 body {
   min-width: 320px;
   background-color: #e7d5987e;
-  font-family: ;
+  /* font-family: ; */
   font-size: 20px;
   line-height: 2;
   color: #000;
@@ -61,6 +61,19 @@ h2 {
 .title:after {
   margin-right: -100%;
 }
+.btn{
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  content: '';
+  cursor: pointer;
+  transition: 1s all ease;
+}
+.button1 {background-color: #e7d5987e;}
+.button2 {background-color: pink}
+.button3 {background-color: orange}
+.button4 {background-color: skyblue;}
+.button5 {background-color: #686868;}
 
 .main {
   display: flex;
