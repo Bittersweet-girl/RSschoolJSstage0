@@ -103,6 +103,9 @@ h2 {
   gap: 4px;
 }
 .field__item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 125px;
   height: 125px;
@@ -111,8 +114,7 @@ h2 {
   cursor: pointer;
   text-align: center;
   font-family: 'arial';
-  font-size: 70px;
-  font-weight: bold;
+  font-size: 100px;
   transition: all linear .3s;
   border-radius: 4px;
 }
