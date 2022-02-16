@@ -22,11 +22,12 @@ body {
   margin: 0 auto;
 }
 .header-content {
-  height: 100px;
+  height: 150px;
   max-width: 1440px;
   margin: 0 auto;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   padding: 5px 20px;
@@ -77,12 +78,61 @@ h2 {
 
 .main {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   height: calc(100vh - 160px);
   min-height: 280px;
-
-  transition: all 0.6s ease;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+.field {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 50px;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+  gap: 4px;
+}
+.field__item{
+  position: relative;
+  width: 125px;
+  height: 125px;
+  line-height: 48px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'arial';
+  font-size: 70px;
+  font-weight: bold;
+  transition: all linear .3s;
+  border-radius: 4px;
+}
+.field__item:hover {
+  background-color: rgba(0,0,0,0);
+  transition: background-color .5s;
+  cursor: pointer;
+}
+.main-buttons{
+  display: flex;
+  justify-content: center;
+}
+.main__btn{
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 3px solid #fff;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all linear .3s;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+}
+.main__btn:hover{
+  background-color: rgba(0,0,0,0);
+  transition: background-color .5s;
 }
 
 .footer-content {
