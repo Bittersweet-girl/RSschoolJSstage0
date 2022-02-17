@@ -18,7 +18,7 @@ for (var i = 0; i < ceil.length; i++) {
 
 function addStep() {
   if (!this.textContent) {
-    step % 2 == 0 ? this.innerHTML = "x": this.innerHTML = "o";
+    step % 2 == 0 ? (this.innerHTML = player) : (this.innerHTML = player);
     step++;
     changePlayer();
     step === 9 ? (text.innerHTML = "No winner") : (text.innerHTML = "Now play " + player);
@@ -33,29 +33,42 @@ function changePlayer() {
 
 
 function checkWin() {
-  if (ceil[0].innerHTML == "x" && ceil[1].innerHTML == "x" && ceil[2].innerHTML == "x") { winnerX();}
-  if (ceil[3].innerHTML == "x" && ceil[4].innerHTML == "x" && ceil[5].innerHTML == "x"){ winnerX();}
-  if (ceil[6].innerHTML == "x" && ceil[7].innerHTML == "x" && ceil[8].innerHTML == "x"){ winnerX();}
-  if (ceil[0].innerHTML == "x" && ceil[4].innerHTML == "x" && ceil[8].innerHTML == "x"){ winnerX();}
-  if (ceil[2].innerHTML == "x" && ceil[4].innerHTML == "x" && ceil[6].innerHTML == "x") { winnerX(); }
+  if (ceil[0].innerHTML == "X" && ceil[1].innerHTML == "X" && ceil[2].innerHTML == "X") { winnerX();}
+  if (ceil[3].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[5].innerHTML == "X"){ winnerX();}
+  if (ceil[6].innerHTML == "X" && ceil[7].innerHTML == "X" && ceil[8].innerHTML == "X"){ winnerX();}
+  if (ceil[0].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[8].innerHTML == "X"){ winnerX();}
+  if (ceil[2].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[6].innerHTML == "X") { winnerX(); }
   
-  if (ceil[0].innerHTML == "o" && ceil[1].innerHTML == "o" && ceil[2].innerHTML == "o") { winnerO();}
-  if (ceil[3].innerHTML == "o" && ceil[4].innerHTML == "o" && ceil[5].innerHTML == "o"){ winnerO();}
-  if (ceil[6].innerHTML == "o" && ceil[7].innerHTML == "o" && ceil[8].innerHTML == "o"){ winnerO();}
-  if (ceil[0].innerHTML == "o" && ceil[4].innerHTML == "o" && ceil[8].innerHTML == "o"){ winnerO();}
-  if (ceil[2].innerHTML == "o" && ceil[4].innerHTML == "o" && ceil[6].innerHTML == "o"){ winnerO();}
+  if (ceil[0].innerHTML == "O" && ceil[1].innerHTML == "O" && ceil[2].innerHTML == "O") { winnerO();}
+  if (ceil[3].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[5].innerHTML == "O"){ winnerO();}
+  if (ceil[6].innerHTML == "O" && ceil[7].innerHTML == "O" && ceil[8].innerHTML == "O"){ winnerO();}
+  if (ceil[0].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[8].innerHTML == "O"){ winnerO();}
+  if (ceil[2].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[6].innerHTML == "O"){ winnerO();}
 }
 
 function winnerX() {
   for (var i = 0; i < ceil.length; i++) {
       ceil[i].removeEventListener("click", addStep);
     }
-    text.innerHTML = "X is win!";
+  text.innerHTML = "X is win!";
+  player = "X";
 }
 
 function winnerO() {
    for (var i = 0; i < ceil.length; i++) {
       ceil[i].removeEventListener("click", addStep);
     }
-    text.innerHTML = "O is win!";
+  text.innerHTML = "O is win!";
+  player = "O";
 }
+
+resetGame.addEventListener("click", function () {
+  for (var i = 0; i < ceil.length; i++) {
+    ceil[i].innerText = "";
+  }
+  step = 0;
+  text.innerText = "Now play " + player;
+  for (var i = 0; i < ceil.length; i++) {
+    ceil[i].addEventListener("click", addStep);
+  }
+});
