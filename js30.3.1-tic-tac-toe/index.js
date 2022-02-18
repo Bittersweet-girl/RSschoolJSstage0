@@ -33,22 +33,108 @@ function changePlayer() {
 
 
 function checkWin() {
-  if (ceil[0].innerHTML == "X" && ceil[1].innerHTML == "X" && ceil[2].innerHTML == "X") { winnerX();}
-  if (ceil[3].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[5].innerHTML == "X"){ winnerX();}
-  if (ceil[6].innerHTML == "X" && ceil[7].innerHTML == "X" && ceil[8].innerHTML == "X"){ winnerX();}
-  if (ceil[0].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[8].innerHTML == "X"){ winnerX();}
-  if (ceil[2].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[6].innerHTML == "X") { winnerX(); }
+  if (ceil[0].innerHTML == "X" && ceil[1].innerHTML == "X" && ceil[2].innerHTML == "X") {
+    winnerX();
+    ceil[0].style.color = 'red';
+    ceil[1].style.color = "red";
+    ceil[2].style.color = "red";
+  }
+  if (ceil[3].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[5].innerHTML == "X") {
+    winnerX();
+    ceil[3].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[5].style.color = "red";
+  }
+  if (ceil[6].innerHTML == "X" && ceil[7].innerHTML == "X" && ceil[8].innerHTML == "X") {
+    winnerX();
+    ceil[6].style.color = "red";
+    ceil[7].style.color = "red";
+    ceil[8].style.color = "red";
+  }
+  if (ceil[0].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[8].innerHTML == "X") {
+    winnerX();
+    ceil[0].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[8].style.color = "red";
+  }
+  if (ceil[2].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[6].innerHTML == "X") {
+    winnerX();
+    ceil[2].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[6].style.color = "red";
+  }
+  if (ceil[0].innerHTML == "X" && ceil[3].innerHTML == "X" && ceil[6].innerHTML == "X") {
+    winnerX();
+    ceil[0].style.color = "red";
+    ceil[3].style.color = "red";
+    ceil[6].style.color = "red";
+  }
+  if (ceil[1].innerHTML == "X" && ceil[4].innerHTML == "X" && ceil[7].innerHTML == "X") {
+    winnerX();
+    ceil[1].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[7].style.color = "red";
+  }
+  if (ceil[2].innerHTML == "X" && ceil[5].innerHTML == "X" && ceil[8].innerHTML == "X") {
+    winnerX();
+    ceil[2].style.color = "red";
+    ceil[5].style.color = "red";
+    ceil[8].style.color = "red";
+  }
   
-  if (ceil[0].innerHTML == "O" && ceil[1].innerHTML == "O" && ceil[2].innerHTML == "O") { winnerO();}
-  if (ceil[3].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[5].innerHTML == "O"){ winnerO();}
-  if (ceil[6].innerHTML == "O" && ceil[7].innerHTML == "O" && ceil[8].innerHTML == "O"){ winnerO();}
-  if (ceil[0].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[8].innerHTML == "O"){ winnerO();}
-  if (ceil[2].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[6].innerHTML == "O"){ winnerO();}
+  if (ceil[0].innerHTML == "O" && ceil[1].innerHTML == "O" && ceil[2].innerHTML == "O") {
+    winnerO();
+    ceil[0].style.color = "red";
+    ceil[1].style.color = "red";
+    ceil[2].style.color = "red";
+  }
+  if (ceil[3].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[5].innerHTML == "O") {
+    winnerO();
+    ceil[3].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[5].style.color = "red";
+  }
+  if (ceil[6].innerHTML == "O" && ceil[7].innerHTML == "O" && ceil[8].innerHTML == "O") {
+    winnerO();
+    ceil[6].style.color = "red";
+    ceil[7].style.color = "red";
+    ceil[8].style.color = "red";
+  }
+  if (ceil[0].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[8].innerHTML == "O") {
+    winnerO();
+    ceil[0].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[8].style.color = "red";
+  }
+  if (ceil[2].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[6].innerHTML == "O") {
+    winnerO();
+    ceil[2].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[6].style.color = "red";
+  }
+  if (ceil[0].innerHTML == "O" && ceil[3].innerHTML == "O" && ceil[6].innerHTML == "O") {
+    winnerO();
+    ceil[0].style.color = "red";
+    ceil[3].style.color = "red";
+    ceil[6].style.color = "red";
+  }
+  if (ceil[1].innerHTML == "O" && ceil[4].innerHTML == "O" && ceil[7].innerHTML == "O") {
+    winnerO();
+    ceil[1].style.color = "red";
+    ceil[4].style.color = "red";
+    ceil[7].style.color = "red";
+  }
+  if (ceil[2].innerHTML == "O" && ceil[5].innerHTML == "O" && ceil[8].innerHTML == "O") {
+    winnerO();
+    ceil[2].style.color = "red";
+    ceil[5].style.color = "red";
+    ceil[8].style.color = "red";
+  }
 }
 
 function winnerX() {
   for (var i = 0; i < ceil.length; i++) {
-      ceil[i].removeEventListener("click", addStep);
+    ceil[i].removeEventListener("click", addStep);
     }
   text.innerHTML = "X is win!";
   player = "X";
@@ -56,7 +142,7 @@ function winnerX() {
 
 function winnerO() {
    for (var i = 0; i < ceil.length; i++) {
-      ceil[i].removeEventListener("click", addStep);
+     ceil[i].removeEventListener("click", addStep);
     }
   text.innerHTML = "O is win!";
   player = "O";
@@ -65,6 +151,7 @@ function winnerO() {
 resetGame.addEventListener("click", function () {
   for (var i = 0; i < ceil.length; i++) {
     ceil[i].innerText = "";
+    ceil[i].style.color = "#000";
   }
   step = 0;
   text.innerText = "Now play " + player;
