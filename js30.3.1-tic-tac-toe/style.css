@@ -77,13 +77,12 @@ h2 {
 
 .main {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: calc(100vh - 160px);
+  justify-content: space-around;
+  height: calc(100vh - 200px);
   min-height: 280px;
   max-width: 1440px;
   margin: 0 auto;
-  /* padding-top: 40px; */
+  padding-top: 20px;
 }
 
 .main__title{
@@ -143,6 +142,31 @@ h2 {
 .main__btn:hover{
   background-color: rgba(0,0,0,0);
   transition: background-color .5s;
+}
+h3{
+  text-align: center;
+}
+.main__table{
+  	width: 100%;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+}
+.main__table th {
+	font-weight: bold;
+	padding: 0px 10px;
+	background: #fff;
+	border: 3px solid #fff;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+}
+.main__table td {
+	border: 3px solid #fff;
+	padding: 0px 10px;
+}
+.main__table tr td:first-child, .main__table tr th:first-child {
+	border-left: none;
+}
+.main__table tr td:last-child, .main__table tr th:last-child {
+	border-right: none;
 }
 
 .footer-content {

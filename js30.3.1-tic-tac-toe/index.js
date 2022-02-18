@@ -8,8 +8,9 @@ const ceil = document.querySelectorAll(".field__item"),
   resetRes = document.querySelector(".main__btn_reset-res");
 
 var player = "X",
-    step = 0,
-  count = 0;
+  step = 0,
+  countX = 0,
+  countO = 0;
 
 
 for (var i = 0; i < ceil.length; i++) {
@@ -18,7 +19,7 @@ for (var i = 0; i < ceil.length; i++) {
 
 function addStep() {
   if (!this.textContent) {
-    step % 2 == 0 ? (this.innerHTML = player) : (this.innerHTML = player);
+    this.innerHTML = player;
     step++;
     changePlayer();
     step === 9 ? (text.innerHTML = "No winner") : (text.innerHTML = "Now play " + player);
@@ -137,6 +138,7 @@ function winnerX() {
     ceil[i].removeEventListener("click", addStep);
     }
   text.innerHTML = "X is win!";
+  countX++;
   player = "X";
 }
 
@@ -145,6 +147,7 @@ function winnerO() {
      ceil[i].removeEventListener("click", addStep);
     }
   text.innerHTML = "O is win!";
+  countO++;
   player = "O";
 }
 
