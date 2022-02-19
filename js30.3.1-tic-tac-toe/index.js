@@ -5,12 +5,16 @@ document.querySelector(".header-buttons").addEventListener("click", (e) => {
 const ceil = document.querySelectorAll(".field__item"),
   text = document.querySelector(".main__title"),
   resetGame = document.querySelector(".main__btn_reset"),
-  resetRes = document.querySelector(".main__btn_reset-res");
+  resetRes = document.querySelector(".main__btn_reset-res"),
+  time = document.querySelector(".main__timer");
 
 var player = "X",
   step = 0,
   countX = 0,
-  countO = 0;
+  countO = 0,
+  sec = 0,
+  min = 0,
+  t;
 
 
 for (var i = 0; i < ceil.length; i++) {
@@ -22,14 +26,25 @@ function addStep() {
     this.innerHTML = player;
     step++;
     changePlayer();
-    step === 9 ? (text.innerHTML = "No winner") : (text.innerHTML = "Now play " + player);
+    step === 9 ? (text.innerHTML = "No winner", clearInterval(t)) : (text.innerHTML = "Now play " + player);
     checkWin();
+    clearInterval(t);
+    t = setInterval(timer, 1000);
   }
-  
+ 
 }
 
 function changePlayer() {
   player === "X" ? (player = "O") : (player = "X");
+}
+
+function timer() {
+  sec++;
+  if (sec >= 60) {
+    sec = 0;
+    min++;
+  }
+  time.textContent = (min > 9 ? min : "0" + min) + ":" + (sec > 9 ? sec : "0" + sec);
 }
 
 
@@ -140,6 +155,7 @@ function winnerX() {
   text.innerHTML = "X is win!";
   countX++;
   player = "X";
+  clearInterval(t);
 }
 
 function winnerO() {
@@ -149,6 +165,7 @@ function winnerO() {
   text.innerHTML = "O is win!";
   countO++;
   player = "O";
+  clearInterval(t);
 }
 
 resetGame.addEventListener("click", function () {
@@ -161,4 +178,8 @@ resetGame.addEventListener("click", function () {
   for (var i = 0; i < ceil.length; i++) {
     ceil[i].addEventListener("click", addStep);
   }
+  time.textContent = "00:00";
+  sec = 0;
+  min = 0;
+  clearInterval(t);
 });

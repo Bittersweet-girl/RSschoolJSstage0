@@ -91,6 +91,11 @@ h2 {
   font-size: 30px;
   display: block;
 }
+.main__timer{
+  text-align: center;
+  font-size: 30px;
+  display: block;
+}
 .field {
   display: flex;
   justify-content: space-around;
