@@ -6,7 +6,9 @@ const ceil = document.querySelectorAll(".field__item"),
   text = document.querySelector(".main__title"),
   resetGame = document.querySelector(".main__btn_reset"),
   resetRes = document.querySelector(".main__btn_reset-res"),
-  time = document.querySelector(".main__timer");
+  time = document.querySelector(".main__timer"),
+  tableX = document.querySelector(".main__table_x"),
+  tableO = document.querySelector(".main__table_o");
 
 var player = "X",
   step = 0,
@@ -156,6 +158,7 @@ function winnerX() {
   countX++;
   player = "X";
   clearInterval(t);
+  addTableX();
 }
 
 function winnerO() {
@@ -166,6 +169,7 @@ function winnerO() {
   countO++;
   player = "O";
   clearInterval(t);
+  addTableO();
 }
 
 resetGame.addEventListener("click", function () {
@@ -183,3 +187,18 @@ resetGame.addEventListener("click", function () {
   min = 0;
   clearInterval(t);
 });
+
+function addTableX() {
+  var tabX = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
+  for (var i = 0; i < countX; i++) {
+    tabX += "<tr><td>" + countX + "<td>" + "time" + "</td>" + "<td>" + step + "</td>" + "</td></tr>" ;
+  }  
+  tableX.innerHTML = tabX + "</table>";
+}
+function addTableO() {
+  var tabO = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
+  for (var i = 0; i < countO; i++) {
+    tabO += "<tr><td>" + countO + "<td>" + "time" + "</td>" + "<td>" + step + "</td>" + "</td></tr>";
+  }
+  tableO.innerHTML = tabO + "</table>";
+}
