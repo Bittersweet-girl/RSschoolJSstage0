@@ -28,10 +28,11 @@ function addStep() {
     this.innerHTML = player;
     step++;
     changePlayer();
-    step === 9 ? (text.innerHTML = "No winner", clearInterval(t)) : (text.innerHTML = "Now play " + player);
-    checkWin();
     clearInterval(t);
     t = setInterval(timer, 1000);
+    checkWin();
+    step === 9 ? (text.innerHTML = "No winner", clearInterval(t)) : (text.innerHTML = "Now play " + player);
+
   }
  
 }
@@ -153,7 +154,7 @@ function checkWin() {
 function winnerX() {
   for (var i = 0; i < ceil.length; i++) {
     ceil[i].removeEventListener("click", addStep);
-    }
+  }
   text.innerHTML = "X is win!";
   countX++;
   player = "X";
@@ -162,9 +163,9 @@ function winnerX() {
 }
 
 function winnerO() {
-   for (var i = 0; i < ceil.length; i++) {
-     ceil[i].removeEventListener("click", addStep);
-    }
+  for (var i = 0; i < ceil.length; i++) {
+    ceil[i].removeEventListener("click", addStep);
+  }
   text.innerHTML = "O is win!";
   countO++;
   player = "O";
@@ -191,14 +192,14 @@ resetGame.addEventListener("click", function () {
 function addTableX() {
   var tabX = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
   for (var i = 0; i < countX; i++) {
-    tabX += "<tr><td>" + countX + "<td>" + "time" + "</td>" + "<td>" + step + "</td>" + "</td></tr>" ;
+    tabX += "<tr><td>" + countX + "<td>" + time.innerHTML + "</td>" + "<td>" + step + "</td>" + "</td></tr>" ;
   }  
   tableX.innerHTML = tabX + "</table>";
 }
 function addTableO() {
   var tabO = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
   for (var i = 0; i < countO; i++) {
-    tabO += "<tr><td>" + countO + "<td>" + "time" + "</td>" + "<td>" + step + "</td>" + "</td></tr>";
+    tabO += "<tr><td>" + countO + "<td>" + time.innerHTML + "</td>" + "<td>" + step + "</td>" + "</td></tr>";
   }
   tableO.innerHTML = tabO + "</table>";
 }
