@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background-color: #e7d5987e;
+  /* font-family: ; */
+  font-size: 20px;
+  line-height: 2;
+  color: #000;
+}
+
+.header {
+  width: 100%;
+  margin: 0 auto;
+}
+.header-content {
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 80px;
+  text-align: center;
+}
+.section-title {
+  width: 50%;
+  overflow-x: hidden;
+  margin: 0 auto;
+}
+.title:before,
+.title:after {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  width: 100%;
+  height: 2px;
+  background: #000;
+  border: solid #000;
+  border-width: 0 10px;
+}
+.title:before {
+  margin-left: -100%;
+}
+.title:after {
+  margin-right: -100%;
+}
+.btn{
+  margin: 10px;
+  width: 20px;
+  height: 20px;
+  content: '';
+  cursor: pointer;
+  transition: 1s all ease;
+}
+.button1 {background-color: #e7d5987e;}
+.button2 {background-color: pink}
+.button3 {background-color: orange}
+.button4 {background-color: skyblue;}
+.button5 {background-color: #686868;}
+
+.main {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  min-height: 280px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.main__title{
+  padding: 5px 0;
+  text-align: center;
+  font-size: 30px;
+  display: block;
+}
+.main__timer{
+  text-align: center;
+  font-size: 30px;
+  display: block;
+}
+.field {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  width: 400px;
+  height: 400px;
+  margin: 0 auto 50px;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+  gap: 4px;
+}
+.field__item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 125px;
+  height: 125px;
+  line-height: 48px;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'arial';
+  font-size: 100px;
+  transition: all linear .3s;
+  border-radius: 4px;
+}
+.field__item:hover {
+  background-color: rgba(0,0,0,0);
+  transition: background-color .5s;
+  cursor: pointer;
+}
+.main-buttons{
+  display: flex;
+  justify-content: center;
+}
+.main__btn{
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 3px solid #fff;
+  font-size: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all linear .3s;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+  text-transform: uppercase;
+}
+.main__btn:hover{
+  background-color: rgba(0,0,0,0);
+  transition: background-color .5s;
+}
+h3{
+  text-align: center;
+}
+.main__table{
+  	width: 100%;
+	border: 1px solid #dddddd;
+	border-collapse: collapse; 
+}
+.main__table th {
+	font-weight: bold;
+	padding: 0px 10px;
+	background: #fff;
+	border: 3px solid #fff;
+  box-shadow: rgba(255, 255, 255, 0.822) 0px 17px 50px;
+}
+.main__table td {
+	border: 3px solid #fff;
+	padding: 0px 10px;
+}
+.main__table tr td:first-child, .main__table tr th:first-child {
+	border-left: none;
+}
+.main__table tr td:last-child, .main__table tr th:last-child {
+	border-right: none;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% - 40px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  font-size: 30px;
+}
+
+.footer-content__github {
+  height: 40px;
+}
+.footer-content__github span {
+  margin: 0px 10px 0;
+}
+.footer-content__github a {
+  color: #000;
+  text-decoration: none;
+  padding: 0 20px;
+  transition: 0.3s;
+}
+.footer-content__github a:hover {
+  color: #bdae82;
+}
+
+.footer-content__rss {
+  width: 135px;
+  height: 50px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url("./rss.svg");
+  transition: 0.3s;
+}
+
+.footer-content__rss:hover {
+  filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
