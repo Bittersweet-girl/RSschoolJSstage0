@@ -14,6 +14,7 @@ var player = "X",
   step = 0,
   countX = 0,
   countO = 0,
+  countN = 0,
   sec = 0,
   min = 0,
   time,
@@ -35,7 +36,7 @@ function addStep() {
     changePlayer();
     clearInterval(t);
     t = setInterval(timer, 1000);
-    step === 9 ? (text.innerHTML = "No winner", clearInterval(t),setLocalStorage(), getLocalStorage()) : (text.innerHTML = "Now play " + player);
+    checkDraw();
     checkWin();
   } 
 }
@@ -60,6 +61,19 @@ function timer() {
   timeText.textContent = time;
 }
 
+function checkDraw() {
+  if (step === 9) {
+    text.innerHTML = "No winner";
+    clearInterval(t);
+    player = "Noone"
+    countN++;
+    setLocalStorage();
+    getLocalStorage();
+    player = "X";
+  } else {
+    text.innerHTML = "Now play " + player
+  }
+}
 
 function checkWin() {
   if (ceil[0].innerHTML == "X" && ceil[1].innerHTML == "X" && ceil[2].innerHTML == "X") {
@@ -221,7 +235,7 @@ resetRes.addEventListener("click", () => {
   player = "X";
   countO = 0;
   countX = 0;
-  
+  countN = 0;
 });
 
 var winner = {
@@ -234,7 +248,7 @@ var winner = {
 function setLocalStorage() {
   var lscount = localStorage.length;
   winner.player = player;
-  winner.winsCount = (player == "X" ? countX : countO );
+  winner.winsCount = (player == "X" ? countX : player == "O" ? countO : countN);
   winner.time = time;
   winner.steps = step;
   localStorage.setItem("Winner" + lscount, JSON.stringify(winner));
@@ -249,7 +263,7 @@ function getLocalStorage() {
       var person = localStorage.getItem(key);
       var data = JSON.parse(person);
       tab += "<tr><td>" + data.player + "</td>" + "<td>" + data.winsCount + "</td>" + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td></tr>";
-
+      data.player == "X" ? countX = data.winsCount : data.player == "O" ? countO = data.winsCount : countN = data.winsCount;
       table.innerHTML = tab + "</table>";
     }
   }
