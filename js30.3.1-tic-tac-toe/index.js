@@ -21,7 +21,7 @@ var player = "X",
   t,
   audioName;
 
-table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+// table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
 
 for (var i = 0; i < ceil.length; i++) {
   ceil[i].addEventListener("click", addStep);
@@ -229,7 +229,7 @@ resetRes.addEventListener("click", () => {
       localStorage.clear();
     }
   }
-  table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+  table.querySelectorAll("td").forEach((el) => el.innerText = "-");
   resetGame();
   text.innerHTML = "X always first";
   player = "X";
@@ -257,7 +257,8 @@ function setLocalStorage() {
 function getLocalStorage() {
   var datacount = localStorage.length;
   if (datacount > 0) {
-    var tab = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
+    var tab = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+    
     for (var i = 0; i < datacount; i++) {
       var key = localStorage.key(i);
       var person = localStorage.getItem(key);
