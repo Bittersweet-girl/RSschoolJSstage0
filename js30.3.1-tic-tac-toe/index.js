@@ -249,7 +249,7 @@ function getLocalStorage() {
       var person = localStorage.getItem(key);
       var data = JSON.parse(person);
       tab += "<tr><td>" + data.player + "</td>" + "<td>" + data.winsCount + "</td>" + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td></tr>";
-
+      data.player == "X" ? countX = data.winsCount : countO = data.winsCount;
       table.innerHTML = tab + "</table>";
     }
   }
