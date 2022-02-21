@@ -8,7 +8,8 @@ const ceil = document.querySelectorAll(".field__item"),
   resetRes = document.querySelector(".main__btn_reset-res"),
   timeText = document.querySelector(".main__timer"),
   tableX = document.querySelector(".main__table_x"),
-  tableO = document.querySelector(".main__table_o");
+  tableO = document.querySelector(".main__table_o"),
+  audio = new Audio();
 
 var player = "X",
   step = 0,
@@ -17,7 +18,8 @@ var player = "X",
   sec = 0,
   min = 0,
   time,
-  t;
+  t,
+  audioName;
 
 
   tableX.innerHTML = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
@@ -31,6 +33,8 @@ function addStep() {
   if (!this.textContent) {
     this.innerHTML = player;
     step++;
+    audioName = "click";
+    playAudio(audioName);
     changePlayer();
     clearInterval(t);
     t = setInterval(timer, 1000);
@@ -41,6 +45,12 @@ function addStep() {
 
 function changePlayer() {
   player === "X" ? (player = "O") : (player = "X");
+}
+function playAudio(audioName) {
+  audio.src = `./sounds/${audioName}.mp3`;
+  audio.currentTime = 0;
+  audio.volume = 1;
+  audio.play();
 }
 
 function timer() {
@@ -161,7 +171,8 @@ function winnerX() {
   text.innerHTML = "X is win!";
   countX++;
   player = "X";
-  
+  audioName = "end";
+  playAudio(audioName);
   setLocalStorage();
   getLocalStorage();
   clearInterval(t);
@@ -174,7 +185,8 @@ function winnerO() {
   text.innerHTML = "O is win!";
   countO++;
   player = "O";
-  
+  audioName = "end";
+  playAudio(audioName);
   setLocalStorage();
   getLocalStorage();
   clearInterval(t);
@@ -194,6 +206,8 @@ function resetGame() {
   sec = 0;
   min = 0;
   clearInterval(t);
+  audioName = "reset";
+  playAudio(audioName);
 }
 reset.addEventListener("click", resetGame);
 
@@ -211,6 +225,7 @@ resetRes.addEventListener("click", () => {
   player = "X";
   countO = 0;
   countX = 0;
+  
 });
 
 var winner = {
