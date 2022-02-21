@@ -79,7 +79,6 @@ h2 {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  height: calc(100vh - 200px);
   min-height: 280px;
   max-width: 1440px;
   margin: 0 auto;
@@ -177,13 +176,13 @@ h3{
 
 .footer-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: calc(100% - 40px);
   max-width: 1440px;
   margin: 0 auto;
-  padding: 5px 20px;
-  font-size: 20px;
+  padding: 15px 20px;
+  font-size: 30px;
 }
 
 .footer-content__github {
