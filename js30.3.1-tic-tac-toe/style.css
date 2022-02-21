@@ -78,6 +78,7 @@ h2 {
 .main {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   height: calc(100vh - 200px);
   min-height: 280px;
   max-width: 1440px;

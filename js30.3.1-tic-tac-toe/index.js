@@ -7,8 +7,7 @@ const ceil = document.querySelectorAll(".field__item"),
   reset = document.querySelector(".main__btn_reset"),
   resetRes = document.querySelector(".main__btn_reset-res"),
   timeText = document.querySelector(".main__timer"),
-  tableX = document.querySelector(".main__table_x"),
-  tableO = document.querySelector(".main__table_o"),
+  table = document.querySelector(".main__table"),
   audio = new Audio();
 
 var player = "X",
@@ -21,9 +20,7 @@ var player = "X",
   t,
   audioName;
 
-
-  tableX.innerHTML = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
-  tableO.innerHTML = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
 
 for (var i = 0; i < ceil.length; i++) {
   ceil[i].addEventListener("click", addStep);
@@ -38,8 +35,8 @@ function addStep() {
     changePlayer();
     clearInterval(t);
     t = setInterval(timer, 1000);
+    step === 9 ? (text.innerHTML = "No winner", clearInterval(t),setLocalStorage(), getLocalStorage()) : (text.innerHTML = "Now play " + player);
     checkWin();
-    step === 9 ? (text.innerHTML = "No winner", clearInterval(t)) : (text.innerHTML = "Now play " + player);
   } 
 }
 
@@ -218,8 +215,7 @@ resetRes.addEventListener("click", () => {
       localStorage.clear();
     }
   }
-  tableX.innerHTML = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
-  tableO.innerHTML = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+  table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
   resetGame();
   text.innerHTML = "X always first";
   player = "X";
@@ -247,24 +243,16 @@ function setLocalStorage() {
 function getLocalStorage() {
   var datacount = localStorage.length;
   if (datacount > 0) {
-var tabX = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>",
-  tabO = "<table class='main__table'><thead><tr><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
+    var tab = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead>";
     for (var i = 0; i < datacount; i++) {
       var key = localStorage.key(i);
       var person = localStorage.getItem(key);
       var data = JSON.parse(person);
-      if (data.player == "X") {
-        tabX += "<tr><td>" + data.winsCount + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td>" + "</td></tr>";
-        countX = data.winsCount;
-      } else {
-        tabO += "<tr><td>" + data.winsCount + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td>" + "</td></tr>";
-        countO = data.winsCount;
-      }
-      tableX.innerHTML = tabX + "</table>";
-      tableO.innerHTML = tabO + "</table>";
+      tab += "<tr><td>" + data.player + "</td>" + "<td>" + data.winsCount + "</td>" + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td></tr>";
+
+      table.innerHTML = tab + "</table>";
     }
   }
 }
-// window.addEventListener("beforeunload", setLocalStorage);
 window.addEventListener("load", getLocalStorage);
 
