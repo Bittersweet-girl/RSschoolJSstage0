@@ -19,9 +19,15 @@ var player = "X",
   min = 0,
   time,
   t,
-  audioName;
+  audioName,
+  data = [],
+  winner = {
+      player: "",
+      winsCount: "",
+      time: "",
+      steps: "",
+    };
 
-// table.innerHTML = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
 
 for (var i = 0; i < ceil.length; i++) {
   ceil[i].addEventListener("click", addStep);
@@ -65,7 +71,7 @@ function checkDraw() {
   if (step === 9) {
     text.innerHTML = "No winner";
     clearInterval(t);
-    player = "Noone"
+    player = "No One"
     countN++;
     setLocalStorage();
     getLocalStorage();
@@ -223,12 +229,8 @@ function resetGame() {
 reset.addEventListener("click", resetGame);
 
 resetRes.addEventListener("click", () => {
-  var lscount = localStorage.length;
-  if (lscount > 0) {
-    for (i = 0; i < lscount; i++) {
-      localStorage.clear();
-    }
-  }
+  localStorage.clear();
+  data = [];
   table.querySelectorAll("td").forEach((el) => el.innerText = "-");
   resetGame();
   text.innerHTML = "X always first";
@@ -238,36 +240,25 @@ resetRes.addEventListener("click", () => {
   countN = 0;
 });
 
-var winner = {
-  player: "",
-  winsCount: "",
-  time: "",
-  steps: ""
-}
-
 function setLocalStorage() {
-  var lscount = localStorage.length;
   winner.player = player;
   winner.winsCount = (player == "X" ? countX : player == "O" ? countO : countN);
   winner.time = time;
   winner.steps = step;
-  localStorage.setItem("Winner" + lscount, JSON.stringify(winner));
+  data.push(winner);
+  localStorage.setItem("Winner", JSON.stringify(data));
 }
 
 function getLocalStorage() {
-  var datacount = localStorage.length;
-  if (datacount > 0) {
-    var tab = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
-    
-    for (var i = 0; i < datacount; i++) {
-      var key = localStorage.key(i);
-      var person = localStorage.getItem(key);
-      var data = JSON.parse(person);
-      tab += "<tr><td>" + data.player + "</td>" + "<td>" + data.winsCount + "</td>" + "<td>" + data.time + "</td>" + "<td>" + data.steps + "</td></tr>";
-      data.player == "X" ? countX = data.winsCount : data.player == "O" ? countO = data.winsCount : countN = data.winsCount;
-      table.innerHTML = tab + "</table>";
-    }
-  }
+  var tab = "<table class='main__table'><thead><tr><th>Winner</th><th>Wins</th><th>Time</th><th>Steps</th></tr></thead></table>";
+  data = JSON.parse(localStorage.getItem("Winner")) || [];
+  data.splice(10);
+  data.forEach((item, i) => {
+    tab += `<tr><td>${item['player']}</td><td>${item['winsCount']}</td><td>${item['time']}</td><td>${item['steps']}</td></tr>`;
+    (item['player'] == "X") ? countX = item['winsCount'] : item['player'] == "O" ? countO = item['winsCount'] : countN = item['winsCount'];
+  });
+  table.innerHTML = tab + "</table>";
+
 }
 window.addEventListener("load", getLocalStorage);
 
