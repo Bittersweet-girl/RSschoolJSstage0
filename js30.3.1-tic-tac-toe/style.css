@@ -169,7 +169,7 @@ h3{
 .main__table td {
 	border: 3px solid #fff;
 	padding: 0px 10px;
-  empty-cells: show;
+  text-align: center;
 }
 .main__table tr td:first-child, .main__table tr th:first-child {
 	border-left: none;
